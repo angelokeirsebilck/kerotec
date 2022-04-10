@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-base-clamp {
+  font-size: clamp(16px, 2.5vw, 19px);
+}
+
+.display1-clamp {
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: 1;
+}
+
+.heading1-clamp {
+  font-size: clamp(35px, 5vw, 60px);
+  line-height: 1;
+}
+
+.heading3-clamp {
+  font-size: clamp(28px, 5vw, 34px);
+  line-height: 1;
+}
+
+.heading4-clamp {
+  font-size: clamp(23px, 5vw, 26px);
+  line-height: 1;
+}
+
+html {
+  font-size: 16px !important;
+}

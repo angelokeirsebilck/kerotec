@@ -1,12 +1,13 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
 import cmsClient from "../lib/cmsClient";
 import { homeEntryQuery } from "../gql/home.gql";
+import HomeBanner from "../components/home/HomeBanner";
 
 export async function getStaticProps() {
   const params = {
     siteId: [2],
   };
+
   const data = await cmsClient.request(homeEntryQuery, params);
 
   return {
@@ -16,9 +17,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ data }) {
-  console.log(data);
-
+export default function Home({ data: { entry: fieldHomeBannerKerotec } }) {
   return (
     <div className="">
       <Head>
@@ -28,7 +27,7 @@ export default function Home({ data }) {
       </Head>
 
       <main>
-        <div className="text-green-400">TEST</div>
+        <HomeBanner content={fieldHomeBannerKerotec} />
       </main>
 
       <footer></footer>
