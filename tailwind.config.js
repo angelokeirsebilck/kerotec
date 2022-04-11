@@ -31,7 +31,6 @@ module.exports = {
         DEFAULT: "#D1D5DB",
       },
     },
-
     animation: {
       spin: "spin .5s linear infinite",
     },
