@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
 .text-base-clamp {
   font-size: clamp(16px, 2.5vw, 19px);
 }

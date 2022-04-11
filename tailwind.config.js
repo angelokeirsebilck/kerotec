@@ -4,9 +4,6 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["Montserrat"],
-    },
     colors: {
       transparent: "transparent",
       body: "#000",
