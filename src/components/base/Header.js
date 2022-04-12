@@ -23,8 +23,8 @@ const Header = ({ mainNav }) => {
           <header
             className={`${headerTranslateFix} flex  justify-between items-center bg-white py-6`}
           >
-            <Link href="/" onClick={() => changeIsNavOpen(false)}>
-              <a>
+            <Link href="/">
+              <a onClick={() => changeIsNavOpen(false)}>
                 <Image
                   alt="Elektro Diego Logo"
                   src={Logo}
@@ -35,6 +35,7 @@ const Header = ({ mainNav }) => {
               </a>
             </Link>
             <Menu mainNav={mainNav} />
+
             <div className="block md:hidden">
               <Hamburger
                 toggled={isNavOpen}

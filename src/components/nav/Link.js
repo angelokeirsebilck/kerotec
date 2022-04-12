@@ -13,12 +13,9 @@ const NavLink = ({ href, label }) => {
   const isActive = href == router.asPath;
 
   return (
-    <Link
-      href={href}
-      onClick={() => changeIsNavOpen(false)}
-      activeClassName="link-active"
-    >
+    <Link href={href}>
       <a
+        onClick={() => changeIsNavOpen(false)}
         className={`text-navlink mb-6 md:mb-0 md:ml-16 font-medium group relative ${
           isActive ? "link-active" : ""
         }`}

@@ -14,6 +14,12 @@ export const mainNavQuery = gql`
             }
           }
         }
+        fieldMainNavHighlight {
+          slug
+          typeHandle
+          sectionHandle
+          title
+        }
       }
     }
   }
