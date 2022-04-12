@@ -31,3 +31,13 @@
   font-size: clamp(23px, 5vw, 26px);
   line-height: 1;
 }
+
+.link-active {
+  svg {
+    opacity: 1;
+  }
+
+  &.btn svg {
+    opacity: 0.6;
+  }
+}

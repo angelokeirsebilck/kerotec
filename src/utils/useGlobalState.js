@@ -13,10 +13,14 @@ export const GlobalStateProvider = ({ children }) => {
 
   useEffect(() => {}, []);
 
+  const changeIsNavOpen = (value) => {
+    setIsNavOpen(value);
+  };
+
   const memoedValue = useMemo(
     () => ({
       isNavOpen,
-      setIsNavOpen,
+      changeIsNavOpen,
     }),
     [isNavOpen]
   );

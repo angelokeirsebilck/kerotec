@@ -1,6 +1,7 @@
 import React from "react";
 import useGlobalState from "../../utils/useGlobalState";
 import Container from "../base/Container";
+import NavLink from "./Link";
 
 const Menu = ({ mainNav }) => {
   const { globalSet: fieldMainNav } = mainNav;
@@ -18,18 +19,10 @@ const Menu = ({ mainNav }) => {
     <div
       className={`${navStyle} top-24  md:left-0 md:top-0 transition-opacity bg-primary md:visible md:bg-white fixed md:relative w-screen md:w-auto h-[calc(100vh_-_96px)] md:h-auto flex flex-col md:flex-row justify-center md:justify-end items-center`}
     >
-      {links.map((link) => {
-        // if (link.header) {
-        //   return (
-        //     <NavLink
-        //       key={link.id}
-        //       to={link.url}
-        //       text={link.name}
-        //       special={link.special}
-        //     />
-        //   );
-        // }
-        return link.slug;
+      {links.map((link, index) => {
+        return (
+          <NavLink key={index} href={`/${link.slug}`} label={link.title} />
+        );
       })}
     </div>
   );

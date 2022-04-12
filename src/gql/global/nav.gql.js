@@ -10,6 +10,7 @@ export const mainNavQuery = gql`
               slug
               sectionHandle
               typeHandle
+              title
             }
           }
         }

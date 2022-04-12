@@ -11,7 +11,7 @@ import useGlobalState from "../../utils/useGlobalState";
 
 const Header = ({ mainNav }) => {
   const [locked, toggleLocked] = useToggle(false);
-  const { isNavOpen, setIsNavOpen } = useGlobalState;
+  const { isNavOpen, changeIsNavOpen } = useGlobalState();
   useLockBodyScroll(locked);
 
   const headerTranslateFix = isNavOpen ? "transform translate-y-0" : "";
@@ -23,7 +23,7 @@ const Header = ({ mainNav }) => {
           <header
             className={`${headerTranslateFix} flex  justify-between items-center bg-white py-6`}
           >
-            <Link href="/" onClick={() => setIsNavOpen(false)}>
+            <Link href="/" onClick={() => changeIsNavOpen(false)}>
               <a>
                 <Image
                   alt="Elektro Diego Logo"
@@ -39,7 +39,7 @@ const Header = ({ mainNav }) => {
               <Hamburger
                 toggled={isNavOpen}
                 onToggle={(toggled) => {
-                  setIsNavOpen(toggled);
+                  changeIsNavOpen(toggled);
                   toggleLocked(toggled);
                 }}
               />
