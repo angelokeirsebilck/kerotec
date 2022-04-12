@@ -29,11 +29,11 @@ const ThemeButton = ({ className, type, label, href }) => {
             onClick={() => changeIsNavOpen(false)}
             className={`${btnClass} ${isActive ? "link-active" : ""}`}
           >
-            <span> {label}</span>
+            <span className="relative z-50"> {label}</span>
 
             <SparkHover
               alt="Spark hover"
-              className="absolute z-10 opacity-0 transition-opacity group-hover:opacity-0 top-[3.5px] left-1/2 transform -translate-x-1/2 rotate-12"
+              className="absolute z-10 opacity-0 transition-opacity group-hover:opacity-0 top-0 md:top-[3.5px] left-1/2 transform -translate-x-1/2 rotate-12"
             />
           </a>
         </Link>

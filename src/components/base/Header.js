@@ -25,13 +25,15 @@ const Header = ({ mainNav }) => {
           >
             <Link href="/">
               <a onClick={() => changeIsNavOpen(false)}>
-                <Image
-                  alt="Elektro Diego Logo"
-                  src={Logo}
-                  width={174}
-                  height={71}
-                  priority
-                />
+                <div className="w-[120px] md:w-[174px]">
+                  <Image
+                    alt="Elektro Diego Logo"
+                    src={Logo}
+                    width={147}
+                    height={71}
+                    priority
+                  />
+                </div>
               </a>
             </Link>
             <Menu mainNav={mainNav} />
