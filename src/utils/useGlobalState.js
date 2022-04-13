@@ -10,6 +10,7 @@ const GlobalStateContext = createContext({});
 
 export const GlobalStateProvider = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showCookiePopup, setShowCookiepopup] = useState("byCookieValue");
 
   useEffect(() => {}, []);
 
@@ -17,12 +18,18 @@ export const GlobalStateProvider = ({ children }) => {
     setIsNavOpen(value);
   };
 
+  const changeShowCookiepopup = (value) => {
+    setShowCookiepopup(value);
+  };
+
   const memoedValue = useMemo(
     () => ({
       isNavOpen,
       changeIsNavOpen,
+      showCookiePopup,
+      changeShowCookiepopup,
     }),
-    [isNavOpen]
+    [isNavOpen, showCookiePopup]
   );
 
   return (

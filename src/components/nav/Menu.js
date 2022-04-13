@@ -18,7 +18,7 @@ const Menu = ({ mainNav }) => {
 
   return (
     <div
-      className={`${navStyle} top-24  md:left-0 md:top-0 transition-opacity bg-primary md:visible md:bg-white fixed md:relative w-screen md:w-auto h-[calc(100vh_-_96px)] md:h-auto flex flex-col md:flex-row justify-center md:justify-end items-center`}
+      className={`${navStyle} fixed  top-24 flex h-[calc(100vh_-_96px)] w-screen flex-col items-center justify-center bg-primary transition-opacity md:visible md:relative md:left-0 md:top-0 md:h-auto md:w-auto md:flex-row md:justify-end md:bg-white`}
     >
       {links.map((link, index) => {
         return (

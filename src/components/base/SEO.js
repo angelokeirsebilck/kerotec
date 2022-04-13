@@ -1,6 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
-// import Script from "next/script";
+import Script from "next/script";
+import { getCookieConsentValue } from "react-cookie-consent";
 
 function Seo({ title, meta, links, jsonLd }) {
   return (
@@ -18,25 +19,26 @@ function Seo({ title, meta, links, jsonLd }) {
           {JSON.stringify(item)}
         </script>
       ))}
-      {/* {process.env.NODE_ENV == "production" && (
+      {process.env.NODE_ENV == "production" && getCookieConsentValue() && (
         <>
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-WHSEVTMEV1"
-            strategy="afterInteractive"
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=G-WHSEVTMEV1`}
           />
-          <Script
-            strategy="afterInteractive"
-            id="gtag"
+          <script
             dangerouslySetInnerHTML={{
               __html: `
-              window.dataLayer = window.dataLayer || []; function gtag()
-              {dataLayer.push(arguments)}
-              gtag('js', new Date()); gtag('config', 'G-WHSEVTMEV1');
-            `,
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-WHSEVTMEV1', {
+                    page_path: window.location.pathname,
+                    });
+                `,
             }}
           />
         </>
-      )} */}
+      )}
     </Head>
   );
 }

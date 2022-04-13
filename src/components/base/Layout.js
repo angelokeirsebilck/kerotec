@@ -1,7 +1,15 @@
 import React from "react";
 import Header from "./Header";
+import CookieConsent from "react-cookie-consent";
+import Link from "next/link";
+import useGlobalState from "../../utils/useGlobalState";
+import { useRouter } from "next/router";
+import { deleteAllCookies } from "../../utils/deleteAllCookies";
 
 const Layout = ({ seo, mainNav, children }) => {
+  const { showCookiePopup, changeShowCookiepopup } = useGlobalState();
+  const router = useRouter();
+
   return (
     <>
       {/* <Head>
@@ -13,6 +21,34 @@ const Layout = ({ seo, mainNav, children }) => {
       <main>{children}</main>
 
       <footer></footer>
+      <CookieConsent
+        visible={showCookiePopup}
+        enableDeclineButton
+        buttonText="Accepteer"
+        declineButtonText="Weiger"
+        style={{ background: "#000", fontSize: "16px" }}
+        buttonStyle={{ background: "#fead1b", fontSize: "16px" }}
+        declineButtonStyle={{
+          background: "transparent",
+          fontSize: "16px",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderColor: "#fead1b",
+        }}
+        onDecline={() => {
+          changeShowCookiepopup("byCookieValue");
+        }}
+        onAccept={() => {
+          changeShowCookiepopup("byCookieValue");
+          router.reload();
+        }}
+      >
+        Deze website maakt gebruik van cookies. Meer informatie hierover vind je{" "}
+        <Link href="/cookies">
+          <a className="underline transition-colors hover:text-primary">hier</a>
+        </Link>
+        .
+      </CookieConsent>
     </>
   );
 };

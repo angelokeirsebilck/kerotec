@@ -9,17 +9,17 @@ const HomeBanner = ({ content: fieldHomeBannerKerotec }) => {
 
   return (
     <Container>
-      <div className="md:grid gap-6 md:grid-cols-12 md:h-[calc(100vh_-_8rem)] flex flex-col items-center">
+      <div className="flex flex-col items-center gap-6 md:grid md:h-[calc(100vh_-_8rem)] md:grid-cols-12">
         <div className="col-span-7 flex flex-col justify-center">
-          <h1 className="display1-clamp strong-primary font-semibold mb-4 md:mb-9 tracking-4 prose-strong:text-primary prose-strong:font-semibold">
+          <h1 className="display1-clamp mb-4 font-semibold tracking-4 prose-strong:font-semibold prose-strong:text-primary md:mb-9">
             {parse(homeBanner.itemTitle)}
           </h1>
 
-          <div className="font-medium strong-primary text-xl md:text-3xl prose-strong:text-primary prose-strong:font-medium">
+          <div className="text-xl font-medium prose-strong:font-medium prose-strong:text-primary md:text-3xl">
             {parse(homeBanner.itemIntro)}
           </div>
         </div>
-        <div className="col-span-5 block items-center mt-6 md:mt-0 relative w-full">
+        <div className="relative col-span-5 mt-6 block w-full items-center md:mt-0">
           <Image
             alt="Home Figure"
             src={homeBanner.itemImage[0].url}

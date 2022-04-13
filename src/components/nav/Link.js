@@ -16,14 +16,14 @@ const NavLink = ({ href, label }) => {
     <Link href={href}>
       <a
         onClick={() => changeIsNavOpen(false)}
-        className={`text-navlink mb-6 md:mb-0 md:ml-16 font-medium group relative ${
+        className={`group relative mb-6 text-navlink font-medium md:mb-0 md:ml-16 ${
           isActive ? "link-active" : ""
         }`}
       >
         <span className="relative z-20 lowercase">{label}</span>
         <SparkHover
           alt="Spark"
-          className="absolute z-10 opacity-0 transition-opacity group-hover:opacity-100 top-[3.5px] left-1/2 transform -translate-x-1/2 rotate-12"
+          className="absolute top-[3.5px] left-1/2 z-10 -translate-x-1/2 rotate-12 transform opacity-0 transition-opacity group-hover:opacity-100"
         />
       </a>
     </Link>
