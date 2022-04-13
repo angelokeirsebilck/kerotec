@@ -5,7 +5,7 @@ import { Squash as Hamburger } from "hamburger-react";
 import Menu from "../nav/Menu";
 import Container from "./Container";
 import Headroom from "react-headroom";
-import Logo from "../../../public/img/elektro-diego-logo.png";
+import Logo from "../../../public/img/kerotec-logo.png";
 import { useLockBodyScroll, useToggle } from "react-use";
 import useGlobalState from "../../utils/useGlobalState";
 
@@ -25,12 +25,12 @@ const Header = ({ mainNav }) => {
           >
             <Link href="/">
               <a onClick={() => changeIsNavOpen(false)}>
-                <div className="w-[120px] md:w-[174px]">
+                <div className="w-[120px] md:w-[250px] flex">
                   <Image
-                    alt="Elektro Diego Logo"
+                    alt="Kerotec Logo"
                     src={Logo}
-                    width={147}
-                    height={71}
+                    width={250}
+                    height={42.6}
                     priority
                   />
                 </div>
