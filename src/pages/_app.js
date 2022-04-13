@@ -1,10 +1,13 @@
 import "../../styles/globals.css";
+import Seo from "../components/base/SEO";
 import { GlobalStateProvider } from "../utils/useGlobalState";
 
 function MyApp({ Component, pageProps }) {
+  const { seo, ...props } = pageProps;
   return (
     <GlobalStateProvider>
-      <Component {...pageProps} />
+      <Seo {...seo} />
+      <Component {...props} />
     </GlobalStateProvider>
   );
 }
