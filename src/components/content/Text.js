@@ -5,7 +5,9 @@ import parse from "html-react-parser";
 const Text = ({ content }) => {
   return (
     <Container>
-      <div className="section prose">{parse(content.itemText)}</div>
+      <div className="section prose prose-a:transition-colors">
+        {parse(content.itemText)}
+      </div>
     </Container>
   );
 };

@@ -53,6 +53,31 @@ module.exports = {
         4: "4px",
         3: "3px",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme("colors.primary.DEFAULT"),
+              "&:hover": {
+                color: theme("colors.primary.hover"),
+              },
+            },
+            h2: {
+              fontSize: theme("fontSize.2xl"),
+              lg: {
+                fontSize: theme("fontSize.4xl"),
+              },
+            },
+          },
+        },
+        lg: {
+          css: {
+            h2: {
+              fontSize: theme("fontSize.4xl"),
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
