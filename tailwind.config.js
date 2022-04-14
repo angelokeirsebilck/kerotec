@@ -19,6 +19,7 @@ module.exports = {
         DEFAULT: "#fead1b",
         dark: "#E59401",
         hover: "#765821",
+        bg: "#fff6e5",
       },
       blue: {
         DEFAULT: "#1B6CFE",
@@ -56,22 +57,17 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            p: {
+              fontSize: theme("fontSize.base"),
+              color: theme("colors.body"),
+              fontWeight: 300,
+            },
             a: {
               color: theme("colors.primary.DEFAULT"),
               "&:hover": {
                 color: theme("colors.primary.hover"),
               },
             },
-            h2: {
-              fontSize: theme("fontSize.2xl"),
-              lg: {
-                fontSize: theme("fontSize.4xl"),
-              },
-            },
-          },
-        },
-        lg: {
-          css: {
             h2: {
               fontSize: theme("fontSize.4xl"),
             },

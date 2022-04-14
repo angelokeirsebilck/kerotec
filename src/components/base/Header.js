@@ -17,15 +17,15 @@ const Header = ({ mainNav }) => {
   const headerTranslateFix = isNavOpen ? "transform translate-y-0" : "";
 
   return (
-    <div className={` bg-white relative z-50`}>
+    <div className={` relative z-50 bg-white`}>
       <Headroom disableInlineStyles className={isNavOpen ? "is-open" : ""}>
         <Container>
           <header
-            className={`${headerTranslateFix} flex  justify-between items-center bg-white py-6`}
+            className={`${headerTranslateFix} flex  items-center justify-between bg-white py-6`}
           >
             <Link href="/">
               <a onClick={() => changeIsNavOpen(false)}>
-                <div className="w-[120px] md:w-[250px] flex">
+                <div className="flex w-[120px] md:w-[250px]">
                   <Image
                     alt="Kerotec Logo"
                     src={Logo}
@@ -53,8 +53,5 @@ const Header = ({ mainNav }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  global: state.global,
-});
 
 export default Header;

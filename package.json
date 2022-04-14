@@ -26,6 +26,7 @@
     "react-dom": "18.0.0",
     "react-headroom": "^3.2.0",
     "react-hook-form": "^7.29.0",
+    "react-inlinesvg": "^2.3.0",
     "react-use": "^17.3.2"
   },
   "devDependencies": {

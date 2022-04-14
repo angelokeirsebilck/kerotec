@@ -3,7 +3,6 @@ import Head from "next/head";
 import { getCookieConsentValue } from "react-cookie-consent";
 
 function Seo({ title, meta, links, jsonLd }) {
-  console.log(process.env.NEXT_PUBLIC_IS_LIVE);
   return (
     <Head>
       <title>{title}</title>

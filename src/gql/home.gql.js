@@ -1,19 +1,12 @@
 import { gql } from "graphql-request";
+import { content } from "./global/content.gql";
+import { seomatic } from "./global/seomatic.gql";
 
 export const homeEntryQuery = gql`
   query homeEntryQuery($siteId: [QueryArgument]!) {
     entry(siteId: $siteId, section: "homeKerotec") {
       ... on homeKerotec_homeKerotec_Entry {
         id
-        seo: seomatic(environment: live, asArray: true) {
-          ... on SeomaticType {
-            metaTitleContainer
-            metaTagContainer
-            metaSiteVarsContainer
-            metaLinkContainer
-            metaJsonLdContainer
-          }
-        }
         fieldHomeBannerKerotec {
           ... on fieldHomeBannerKerotec_BlockType {
             id
@@ -24,6 +17,8 @@ export const homeEntryQuery = gql`
             itemTitle
           }
         }
+        ${seomatic}
+        ${content}
       }
     }
   }

@@ -4,25 +4,23 @@ import Container from "../base/Container";
 import Image from "next/image";
 import parse from "html-react-parser";
 
-const HomeBanner = ({ content: fieldHomeBannerKerotec }) => {
-  const homeBanner = fieldHomeBannerKerotec.fieldHomeBannerKerotec[0];
-
+const HomeBanner = ({ content }) => {
   return (
     <Container>
       <div className="flex flex-col items-center gap-6 md:grid md:h-[calc(100vh_-_8rem)] md:grid-cols-12">
         <div className="col-span-7 flex flex-col justify-center">
           <h1 className="display1-clamp mb-4 font-semibold tracking-4 prose-strong:font-semibold prose-strong:text-primary md:mb-9">
-            {parse(homeBanner.itemTitle)}
+            {parse(content.itemTitle)}
           </h1>
 
           <div className="text-xl font-medium prose-strong:font-medium prose-strong:text-primary md:text-3xl">
-            {parse(homeBanner.itemIntro)}
+            {parse(content.itemIntro)}
           </div>
         </div>
         <div className="relative col-span-5 mt-6 block w-full items-center md:mt-0">
           <Image
             alt="Home Figure"
-            src={homeBanner.itemImage[0].url}
+            src={content.itemImage[0].url}
             layout="responsive"
             width={613}
             height={555}
