@@ -10,6 +10,30 @@ fieldContentKerotec {
       __typename
       itemBackgroundColor
     }
+    ... on fieldContentKerotec_typeCta_BlockType {
+      __typename
+      id
+      itemBackgroundColor
+      itemCta {
+        ... on kerotecCta_default_Entry {
+          id
+          fieldKerotecCtaContent {
+            ... on fieldKerotecCtaContent_BlockType {
+              id
+              itemLink {
+                slug
+              }
+              itemLinkLabel
+              itemText
+              itemTitle
+              itemImage{
+                url
+              }
+            }
+          }
+        }
+      }
+    }
     ... on fieldContentKerotec_typeTextMedia_BlockType {
       __typename
       id
