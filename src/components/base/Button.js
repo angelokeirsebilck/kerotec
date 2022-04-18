@@ -5,11 +5,11 @@ import SparkHover from "../../../public/img/svg/spark-hover.svg";
 import useGlobalState from "../../utils/useGlobalState";
 import { useRouter } from "next/router";
 
-const ThemeButton = ({ className, type, label, href }) => {
+const ThemeButton = ({ className, type, label, href, footer }) => {
   const { changeIsNavOpen } = useGlobalState();
   const router = useRouter();
 
-  const isActive = href == router.asPath;
+  const isActive = href == router.asPath && !footer;
   const defaultClass = "btn relative group ";
   const btnClass = defaultClass + className;
 
@@ -33,7 +33,7 @@ const ThemeButton = ({ className, type, label, href }) => {
 
             <SparkHover
               alt="Spark hover"
-              className="absolute z-10 opacity-0 transition-opacity group-hover:opacity-0 top-0 md:top-[3.5px] left-1/2 transform -translate-x-1/2 rotate-12"
+              className="absolute top-0 left-1/2 z-10 -translate-x-1/2 rotate-12 transform opacity-0 transition-opacity group-hover:opacity-0 md:top-[3.5px]"
             />
           </a>
         </Link>

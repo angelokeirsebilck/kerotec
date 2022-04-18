@@ -13,8 +13,11 @@ export async function getStaticProps() {
   const params = {
     siteId: [2],
   };
-  const content = await cmsClient.request(cookiesEntryQuery, params);
+
+  const content = await cmsClient.request(homeEntryQuery, params);
   const mainNav = await cmsClient.request(mainNavQuery, params);
+  const footer = await cmsClient.request(footerQuery, params);
+  const usp = await cmsClient.request(uspQuery, params);
 
   return {
     props: {

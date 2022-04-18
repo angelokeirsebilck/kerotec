@@ -5,8 +5,9 @@ import Link from "next/link";
 import useGlobalState from "../../utils/useGlobalState";
 import { useRouter } from "next/router";
 import { deleteAllCookies } from "../../utils/deleteAllCookies";
+import Footer from "./Footer";
 
-const Layout = ({ seo, mainNav, children }) => {
+const Layout = ({ seo, mainNav, footer, children }) => {
   const { showCookiePopup, changeShowCookiepopup } = useGlobalState();
   const router = useRouter();
 
@@ -19,8 +20,7 @@ const Layout = ({ seo, mainNav, children }) => {
       </Head> */}
       <Header mainNav={mainNav} />
       <main>{children}</main>
-
-      <footer></footer>
+      <Footer footer={footer} />
       <CookieConsent
         visible={showCookiePopup}
         enableDeclineButton
