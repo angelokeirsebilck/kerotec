@@ -5,7 +5,6 @@ import parse from "html-react-parser";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
 import SparkBig from "../../../public/img/svg/spark-big.svg";
-import { hyphenateSync } from "hyphen/nl";
 
 // Components
 import Container from "../base/Container";
