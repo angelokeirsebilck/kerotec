@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import { hyphenateSync } from "hyphen/nl";
 // Components
 import ThemeButton from "../base/Button";
 import Container from "../base/Container";
@@ -8,7 +8,6 @@ import Container from "../base/Container";
 const Cta = ({ content }) => {
   const ctaContent = content.itemCta[0].fieldKerotecCtaContent[0];
 
-  console.log(content);
   const spacing =
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
   const textColor =
@@ -43,14 +42,14 @@ const Cta = ({ content }) => {
               <h2
                 className={`heading1-clamp font-semibold tracking-3 ${textColor}`}
               >
-                {ctaContent.itemTitle}
+                {hyphenateSync(ctaContent.itemTitle, { minWordLength: 10 })}
               </h2>
             </div>
             <div className="flex flex-col justify-between md:col-span-4 md:col-start-9 md:items-end">
               <div
                 className={`heading3-clamp font-medium md:text-right ${textColor}`}
               >
-                {ctaContent.itemText}
+                {hyphenateSync(ctaContent.itemText, { minWordLength: 10 })}
               </div>
               {ctaContent.itemLink.length > 0 && (
                 <div className="mt-6">

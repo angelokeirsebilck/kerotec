@@ -8,6 +8,7 @@ export const pagesQuery = gql`
       ... on pagesKerotec_default_Entry {
         __typename
         slug
+        title
         fieldContentKerotec {
           ... on fieldContentKerotec_typeTextMedia_BlockType {
             __typename
@@ -24,6 +25,7 @@ export const pagesQuery = gql`
       ... on legalKerotec_default_Entry {
         __typename
         slug
+        title
         fieldContentKerotec {
           ... on fieldContentKerotec_typeTextMedia_BlockType {
             __typename

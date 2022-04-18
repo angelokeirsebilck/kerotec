@@ -9,7 +9,7 @@ import Logo from "../../../public/img/kerotec-logo.png";
 import { useLockBodyScroll, useToggle } from "react-use";
 import useGlobalState from "../../utils/useGlobalState";
 
-const Header = ({ mainNav }) => {
+const Header = ({ mainNav, border }) => {
   const [locked, toggleLocked] = useToggle(false);
   const { isNavOpen, changeIsNavOpen } = useGlobalState();
   useLockBodyScroll(locked);
@@ -17,11 +17,13 @@ const Header = ({ mainNav }) => {
   const headerTranslateFix = isNavOpen ? "transform translate-y-0" : "";
 
   return (
-    <div className={` relative z-50 bg-white`}>
+    <div className={`relative z-50 bg-white `}>
       <Headroom disableInlineStyles className={isNavOpen ? "is-open" : ""}>
         <Container>
           <header
-            className={`${headerTranslateFix} flex  items-center justify-between bg-white py-6`}
+            className={`${headerTranslateFix} ${
+              border ? " border-b-4 border-primary-bg" : ""
+            } flex  items-center justify-between bg-white py-4 md:py-10`}
           >
             <Link href="/">
               <a onClick={() => changeIsNavOpen(false)}>

@@ -8,6 +8,7 @@ import Content from "../components/content/Content";
 import Layout from "../components/base/Layout";
 import ChangeCookies from "../components/cookies/ChangeCookies";
 import parseSEO from "../utils/parseSEO";
+import Title from "../components/base/Title";
 
 export async function getStaticProps({ params }) {
   const queryParams = {
@@ -56,7 +57,8 @@ export async function getStaticPaths() {
 
 export default function DefaultPage({ mainNav, footer, usp, content }) {
   return (
-    <Layout mainNav={mainNav} footer={footer}>
+    <Layout border={false} mainNav={mainNav} footer={footer}>
+      <Title title={content.entry.title} />
       <Content content={content.entry.fieldContentKerotec} usp={usp} />
       {content.entry?.slug == "cookies" && <ChangeCookies />}
     </Layout>

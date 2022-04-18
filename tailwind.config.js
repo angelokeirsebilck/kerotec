@@ -68,9 +68,6 @@ module.exports = {
                 color: theme("colors.primary.hover"),
               },
             },
-            h2: {
-              fontSize: theme("fontSize.4xl"),
-            },
           },
         },
       }),

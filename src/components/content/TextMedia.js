@@ -5,6 +5,7 @@ import parse from "html-react-parser";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
 import SparkBig from "../../../public/img/svg/spark-big.svg";
+import { hyphenateSync } from "hyphen/nl";
 
 // Components
 import Container from "../base/Container";
@@ -65,8 +66,8 @@ const MediaText = ({ content }) => {
               className="font-sans heading1-clamp mb-6 font-semibold tracking-3 md:mb-12"
               dangerouslySetInnerHTML={createTitleHTML()}
             /> */}
-            <div className="prose leading-snug   tracking-1">
-              {parse(content.itemText)}
+            <div className="prose-style ">
+              {parse(hyphenateSync(content.itemText, { minWordLength: 10 }))}
             </div>
             {content.itemLink.length > 0 && (
               <div className="mt-6 md:mt-12">

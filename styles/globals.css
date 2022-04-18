@@ -104,6 +104,10 @@ select:-webkit-autofill:focus {
   }
 }
 
+.prose-style {
+  @apply prose leading-snug tracking-1 prose-h2:text-4xl prose-h2:font-semibold prose-h3:text-3xl prose-h4:text-2xl prose-a:transition-colors prose-ul:list-none prose-ul:pl-0 prose-li:break-inside-avoid-column prose-li:pl-8 prose-li:pb-2 prose-li:text-base prose-li:font-light md:prose-h2:text-5xl md:prose-h3:text-4xl md:prose-h4:text-3xl md:prose-ul:columns-2;
+}
+
 .section {
   @apply my-12 md:my-28;
 }
@@ -124,5 +128,22 @@ select:-webkit-autofill:focus {
     width: 100% !important;
     position: relative !important;
     height: unset !important;
+  }
+}
+
+.prose {
+  li {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: 0;
+      background: url("/img/svg/li.svg");
+      height: 30px;
+      width: 11px;
+    }
   }
 }

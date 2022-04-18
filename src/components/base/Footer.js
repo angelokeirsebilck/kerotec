@@ -32,25 +32,27 @@ const Footer = ({ footer }) => {
               </div>
 
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold">T</span>
+                <span className="mr-2.5 font-bold text-primary">T</span>
                 <a
                   href={`tel:${info.fieldTel1.replace(/\s+/g, "")}`}
                   className="font-medium transition-colors hover:text-primary"
                 >
-                  {info.fieldTel1} - Diego
+                  {info.fieldTel1} - <span className="text-primary">Ke</span>
+                  irsebilck Diego
                 </a>
               </div>
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold">T</span>
+                <span className="mr-2.5 font-bold text-primary">T</span>
                 <a
                   href={`tel:${info.fieldTel2.replace(/\s+/g, "")}`}
                   className="font-medium transition-colors hover:text-primary"
                 >
-                  {info.fieldTel2} - Jeroen
+                  {info.fieldTel2} - <span className="text-primary">Ro</span>
+                  sseel Jeroen
                 </a>
               </div>
               <div className="flex">
-                <span className="mr-2.5 font-bold">E</span>
+                <span className="mr-2.5 font-bold text-primary">E</span>
                 <a
                   href={`mailto:${info.fieldEmail.replace(/\s+/g, "")}`}
                   className="font-medium transition-colors  hover:text-primary"
