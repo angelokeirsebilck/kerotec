@@ -67,7 +67,7 @@ const MediaText = ({ content }) => {
               dangerouslySetInnerHTML={createTitleHTML()}
             /> */}
             <div className="prose-style ">
-              {parse(hyphenateSync(content.itemText, { minWordLength: 10 }))}
+              {parse(content.itemText, { minWordLength: 10 })}
             </div>
             {content.itemLink.length > 0 && (
               <div className="mt-6 md:mt-12">
