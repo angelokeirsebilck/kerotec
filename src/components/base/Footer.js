@@ -104,7 +104,7 @@ const Footer = ({ footer }) => {
                     href={socials.fieldFacebook}
                     target="_blank"
                     className="ml-6 text-body transition-colors hover:text-primary"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <FaFacebookF color="text-inherit" size={24} />
                   </a>
