@@ -8,6 +8,7 @@ import parseSEO from "../utils/parseSEO";
 import Form from "../components/base/Form";
 import Content from "../components/content/Content";
 import { uspQuery } from "../gql/global/usp.gql";
+import { useInView } from "react-intersection-observer";
 
 export async function getStaticProps() {
   const params = {
@@ -32,10 +33,19 @@ export async function getStaticProps() {
 }
 
 export default function Home({ mainNav, footer, content, usp }) {
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   return (
     <Layout border={true} mainNav={mainNav} footer={footer}>
       <HomeBanner content={content.entry.fieldHomeBannerKerotec[0]} />
-      {/* <Content content={content.entry.fieldContentKerotec} usp={usp} /> */}
+      <div className="" ref={ref}>
+        {inView && (
+          <Content content={content.entry.fieldContentKerotec} usp={usp} />
+        )}
+      </div>
     </Layout>
   );
 }
