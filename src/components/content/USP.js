@@ -7,12 +7,13 @@ import Container from "../base/Container";
 
 const USP = ({ content, usp }) => {
   const uspList = usp.globalSet.fieldKerotecUsp;
-  const spacing = content.itemBackground === "white" ? "section" : "section-bg";
+  const spacing =
+    content.itemBackgroundColor === "white" ? "section" : "section-bg";
 
   return (
     <div
       className={
-        content.itemBackground === "light"
+        content.itemBackgroundColor === "light"
           ? "relative overflow-hidden bg-primary-bg"
           : "relative overflow-hidden bg-white"
       }

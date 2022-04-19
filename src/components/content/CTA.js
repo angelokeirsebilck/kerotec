@@ -7,7 +7,7 @@ import Container from "../base/Container";
 
 const Cta = ({ content }) => {
   const ctaContent = content.itemCta[0].fieldKerotecCtaContent[0];
-
+  console.log(content.itemBackgroundColor);
   const spacing =
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
   const textColor =
