@@ -59,7 +59,11 @@ export default function DefaultPage({ mainNav, footer, usp, content }) {
   return (
     <Layout border={false} mainNav={mainNav} footer={footer}>
       <Title title={content.entry.title} />
-      <Content content={content.entry.fieldContentKerotec} usp={usp} />
+      <Content
+        content={content.entry.fieldContentKerotec}
+        usp={usp}
+        info={footer.info}
+      />
       {content.entry?.slug == "cookies" && <ChangeCookies />}
     </Layout>
   );

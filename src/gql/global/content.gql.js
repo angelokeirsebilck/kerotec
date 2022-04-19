@@ -6,7 +6,13 @@ fieldContentKerotec {
       itemText
       itemTitle
     }
+    ... on fieldContentKerotec_typeForm_BlockType {
+      __typename
+      id
+      itemIntro
+    }
     ... on fieldContentKerotec_typeUsp_BlockType {
+      id
       __typename
       itemBackgroundColor
     }

@@ -58,6 +58,7 @@ const Cta = ({ content }) => {
                     type="next"
                     href={`/${ctaContent.itemLink[0].slug}`}
                     label={ctaContent.itemLinkLabel}
+                    footer
                   />
                 </div>
               )}
