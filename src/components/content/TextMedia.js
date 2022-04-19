@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
 import SparkBig from "../../../public/img/svg/spark-big.svg";
-
+import { hyphenateSync } from "hyphen/nl";
 // Components
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
@@ -66,7 +66,7 @@ const MediaText = ({ content }) => {
               dangerouslySetInnerHTML={createTitleHTML()}
             /> */}
             <div className="prose-style ">
-              {parse(content.itemText, { minWordLength: 10 })}
+              {parse(hyphenateSync(content.itemText, { minWordLength: 10 }))}
             </div>
             {content.itemLink.length > 0 && (
               <div className="mt-6 md:mt-12">
