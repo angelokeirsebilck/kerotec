@@ -86,7 +86,7 @@ const MediaText = ({ content }) => {
             {showLinesDownRight && (
               <LinesDownRight className="absolute -bottom-40 right-1/3 hidden md:block xl:-right-1/4" />
             )}
-            <div className="image-container">
+            {/* <div className="image-container">
               <Image
                 alt={content.itemImage[0].title}
                 src={content.itemImage[0].url}
@@ -95,7 +95,16 @@ const MediaText = ({ content }) => {
                 sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
                 placeholder="empty"
               />
-            </div>
+            </div> */}
+            <Image
+              alt={content.itemImage[0].title}
+              src={content.itemImage[0].url}
+              layout="responsive"
+              width={612}
+              height={408}
+              sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
+              placeholder="empty"
+            />
           </div>
         </div>
       </Container>
