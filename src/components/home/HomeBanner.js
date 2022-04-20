@@ -26,6 +26,7 @@ const HomeBanner = ({ content }) => {
             height={555}
             priority
             sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
+            placeholder="empty"
           />
         </div>
       </div>

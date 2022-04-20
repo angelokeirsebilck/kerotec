@@ -9,6 +9,7 @@ import SparkBig from "../../../public/img/svg/spark-big.svg";
 // Components
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
+import BlurImage from "../base/BlurImage";
 
 const MediaText = ({ content }) => {
   const contentPos =
@@ -96,7 +97,7 @@ const MediaText = ({ content }) => {
                 placeholder="empty"
               />
             </div> */}
-            <Image
+            <BlurImage
               alt={content.itemImage[0].title}
               src={content.itemImage[0].url}
               layout="responsive"
@@ -105,6 +106,15 @@ const MediaText = ({ content }) => {
               sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
               placeholder="empty"
             />
+            {/* <Image
+              alt={content.itemImage[0].title}
+              src={content.itemImage[0].url}
+              layout="responsive"
+              width={612}
+              height={408}
+              sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
+              placeholder="empty"
+            /> */}
           </div>
         </div>
       </Container>
