@@ -31,6 +31,7 @@ const Cta = ({ content }) => {
             layout="fill"
             objectFit="cover"
             sizes="100vw"
+            placeholder="empty"
           />
         )}
       </div>

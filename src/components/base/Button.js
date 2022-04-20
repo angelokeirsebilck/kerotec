@@ -4,10 +4,13 @@ import Link from "next/link";
 import SparkHover from "../../../public/img/svg/spark-hover.svg";
 import useGlobalState from "../../utils/useGlobalState";
 import { useRouter } from "next/router";
+import { useLockBodyScroll, useToggle } from "react-use";
 
 const ThemeButton = ({ className, type, label, href, footer }) => {
   const { changeIsNavOpen } = useGlobalState();
   const router = useRouter();
+  const [locked, toggleLocked] = useToggle(false);
+  useLockBodyScroll(locked);
 
   const isActive = href == router.asPath && !footer;
   const defaultClass = "btn relative group ";
@@ -26,7 +29,10 @@ const ThemeButton = ({ className, type, label, href, footer }) => {
       return (
         <Link href={href}>
           <a
-            onClick={() => changeIsNavOpen(false)}
+            onClick={() => {
+              changeIsNavOpen(false);
+              toggleLocked(false);
+            }}
             className={`${btnClass} ${isActive ? "link-active" : ""}`}
           >
             <span className="relative z-50"> {label}</span>

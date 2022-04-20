@@ -7,7 +7,7 @@ import parse from "html-react-parser";
 const HomeBanner = ({ content }) => {
   return (
     <Container>
-      <div className="flex flex-col items-center gap-6 md:grid md:h-[calc(100vh_-_8rem)] md:grid-cols-12">
+      <div className="py-md-0  flex flex-col items-center gap-6 py-12 md:mt-0 md:grid md:h-[calc(100vh_-_8rem)] md:grid-cols-12">
         <div className="col-span-7 flex flex-col justify-center">
           <h1 className="display1-clamp mb-4 font-semibold tracking-4 prose-strong:font-semibold prose-strong:text-primary md:mb-9">
             {parse(content.itemTitle)}

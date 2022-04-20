@@ -4,17 +4,22 @@ import Link from "next/link";
 import SparkHover from "../../../public/img/svg/spark-hover.svg";
 import useGlobalState from "../../utils/useGlobalState";
 import { useRouter } from "next/router";
+import { useLockBodyScroll, useToggle } from "react-use";
 
 const NavLink = ({ href, label }) => {
   const { changeIsNavOpen } = useGlobalState();
   const router = useRouter();
-
+  const [locked, toggleLocked] = useToggle(false);
+  useLockBodyScroll(locked);
   const isActive = href == router.asPath;
 
   return (
     <Link href={href}>
       <a
-        onClick={() => changeIsNavOpen(false)}
+        onClick={() => {
+          changeIsNavOpen(false);
+          toggleLocked(false);
+        }}
         className={`group relative mb-6 text-navlink font-medium md:mb-0 md:ml-16 ${
           isActive ? "link-active" : ""
         }`}
