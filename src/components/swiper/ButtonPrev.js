@@ -10,4 +10,6 @@ const ButtonPrev = React.forwardRef((props, ref) => (
   </div>
 ));
 
+ButtonPrev.displayName = "ButtonPrev";
+
 export default ButtonPrev;

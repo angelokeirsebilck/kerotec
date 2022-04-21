@@ -9,5 +9,6 @@ const ButtonNext = React.forwardRef((props, ref) => (
     <MdChevronRight style={{ fontSize: "40px" }} />
   </div>
 ));
+ButtonNext.displayName = "ButtonNext";
 
 export default ButtonNext;
