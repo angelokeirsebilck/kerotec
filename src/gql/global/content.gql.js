@@ -22,6 +22,9 @@ fieldContentKerotec {
       __typename
       id
       itemIntro
+      itemThanksPage {
+        slug
+      }
     }
     ... on fieldContentKerotec_typeUsp_BlockType {
       id

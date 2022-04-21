@@ -20,8 +20,6 @@ const References = ({ content }) => {
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
 
-  console.log(content);
-
   return (
     <div
       className={

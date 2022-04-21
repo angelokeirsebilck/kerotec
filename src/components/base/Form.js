@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Container from "./Container";
+import ClipLoader from "react-spinners/ClipLoader.js";
+import { useRouter } from "next/router";
 
-const Form = () => {
+const Form = ({ thanksSlug }) => {
   const {
     register,
     handleSubmit,
@@ -10,9 +11,12 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
   const onSubmit = async (data) => {
     // e.preventDefault();
-
+    setIsLoading(true);
     try {
       const response = await fetch("/api/submit", {
         body: JSON.stringify({
@@ -24,9 +28,12 @@ const Form = () => {
         method: "POST",
       });
       const result = await response.json();
-      console.log(result);
+      reset();
+      setIsLoading(false);
+      router.push(`/${thanksSlug}`);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -157,8 +164,20 @@ const Form = () => {
           </label>
           <div className={errorClassTextarea}>{errors.message?.message}</div>
         </div>
-        <button type="submit" className="btn btn-primary mt-12">
-          Verstuur
+        <button
+          type="submit"
+          className={`btn btn-primary relative mt-12 ${
+            isLoading
+              ? "pointer-events-none !border-primary-bg !bg-primary-bg"
+              : ""
+          }`}
+        >
+          <div className="absolute left-1/2 -translate-x-1/2 transform">
+            <ClipLoader loading={isLoading} size={30} color="#000" />
+          </div>
+          <span className={`${isLoading ? "text-transparent" : ""}`}>
+            verstuur
+          </span>
         </button>
       </form>
     </div>

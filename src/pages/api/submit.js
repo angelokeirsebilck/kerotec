@@ -19,7 +19,6 @@ const getHTMLData = (data) => {
 
 export default function handler(req, res) {
   const data = req.body;
-  console.log(data);
 
   const msg = {
     to: "info@kerotec.be", // Change to your recipient

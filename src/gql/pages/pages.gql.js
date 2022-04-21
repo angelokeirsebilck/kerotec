@@ -22,6 +22,23 @@ export const pagesQuery = gql`
         ${seomatic}
         ${content}
       }
+      ... on pagesKerotec_thanks_Entry {
+        __typename
+        slug
+        title
+        fieldContentKerotec {
+          ... on fieldContentKerotec_typeTextMedia_BlockType {
+            __typename
+            itemImage {
+              url
+            }
+            itemText
+            itemTitle
+          }
+        }
+        ${seomatic}
+        ${content}
+      }
       ... on legalKerotec_default_Entry {
         __typename
         slug

@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Image from "next/image";
 import parse from "html-react-parser";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
 import SparkBig from "../../../public/img/svg/spark-big.svg";
-
-// Components
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
 import BlurImage from "../base/BlurImage";

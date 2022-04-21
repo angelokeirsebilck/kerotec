@@ -6,6 +6,9 @@ export const pagesListQuery = gql`
       ... on pagesKerotec_default_Entry {
         slug
       }
+      ... on pagesKerotec_thanks_Entry {
+        slug
+      }
       ... on legalKerotec_default_Entry {
         slug
       }
