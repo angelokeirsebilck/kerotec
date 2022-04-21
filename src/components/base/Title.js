@@ -5,7 +5,7 @@ import { hyphenateSync } from "hyphen/nl";
 
 const Title = ({ title }) => {
   return (
-    <div className="bg-primary-bg pt-16 pb-10">
+    <div className="overflow-hidden bg-primary-bg pt-16 pb-10">
       <Container>
         <h1 className="heading1-clamp relative inline-block">
           {hyphenateSync(title, { minWordLength: 10 })}

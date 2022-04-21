@@ -6,6 +6,18 @@ fieldContentKerotec {
       itemText
       itemTitle
     }
+    ... on fieldContentKerotec_typeReferences_BlockType {
+      __typename
+      id
+      itemTitle
+      itemBackgroundColor
+      itemRefs {
+        ... on itemRefs_BlockType {
+          itemAuthor
+          itemText
+        }
+      }
+    }
     ... on fieldContentKerotec_typeForm_BlockType {
       __typename
       id

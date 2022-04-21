@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
-import useGlobalState from "../../utils/useGlobalState";
+import useGlobalState from "../../hooks/useGlobalState";
 import { useRouter } from "next/router";
 import { deleteAllCookies } from "../../utils/deleteAllCookies";
 import Footer from "./Footer";

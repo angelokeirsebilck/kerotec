@@ -1,5 +1,5 @@
 import React from "react";
-import useGlobalState from "../../utils/useGlobalState";
+import useGlobalState from "../../hooks/useGlobalState";
 import { resetCookieConsentValue } from "react-cookie-consent";
 import { deleteAllCookies } from "../../utils/deleteAllCookies";
 import Container from "../base/Container";

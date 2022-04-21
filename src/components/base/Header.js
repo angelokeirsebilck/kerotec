@@ -7,7 +7,7 @@ import Container from "./Container";
 import Headroom from "react-headroom";
 import Logo from "../../../public/img/kerotec-logo.png";
 import { useLockBodyScroll, useToggle } from "react-use";
-import useGlobalState from "../../utils/useGlobalState";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const Header = ({ mainNav, border }) => {
   const [locked, toggleLocked] = useToggle(false);

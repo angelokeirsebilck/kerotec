@@ -1,5 +1,5 @@
 import React from "react";
-import useGlobalState from "../../utils/useGlobalState";
+import useGlobalState from "../../hooks/useGlobalState";
 import Button from "../base/Button";
 import NavLink from "./Link";
 
