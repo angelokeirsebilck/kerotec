@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import cmsClient from "../lib/cmsClient";
 import { mainNavQuery } from "../gql/global/nav.gql";
 import { pagesQuery } from "../gql/pages/pages.gql";
@@ -6,9 +7,12 @@ import { footerQuery } from "../gql/global/footer.gql";
 import { uspQuery } from "../gql/global/usp.gql";
 import Content from "../components/content/Content";
 import Layout from "../components/base/Layout";
-import ChangeCookies from "../components/cookies/ChangeCookies";
 import parseSEO from "../utils/parseSEO";
 import Title from "../components/base/Title";
+
+const ChangeCookies = dynamic(() =>
+  import("../components/cookies/ChangeCookies")
+);
 
 export async function getStaticProps({ params }) {
   const queryParams = {
