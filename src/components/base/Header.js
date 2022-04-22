@@ -34,6 +34,7 @@ const Header = ({ mainNav, border }) => {
                     width={250}
                     height={42.6}
                     priority
+                    placeholder="blur"
                   />
                 </div>
               </a>

@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["angelokeirsebilck.ams3.cdn.digitaloceanspaces.com"],
     formats: ["image/avif", "image/webp"],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 450, 575],
   },
   webpack(config) {
     config.module.rules.push({

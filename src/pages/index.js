@@ -34,7 +34,11 @@ export default function Home({ mainNav, footer, content, usp }) {
   return (
     <Layout border={true} mainNav={mainNav} footer={footer}>
       <HomeBanner content={content.entry.fieldHomeBannerKerotec[0]} />
-      <Content content={content.entry.fieldContentKerotec} usp={usp} />
+      <Content
+        content={content.entry.fieldContentKerotec}
+        usp={usp}
+        lcp={false}
+      />
     </Layout>
   );
 }

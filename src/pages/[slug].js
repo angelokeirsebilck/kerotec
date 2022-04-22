@@ -63,6 +63,7 @@ export default function DefaultPage({ mainNav, footer, usp, content }) {
         content={content.entry.fieldContentKerotec}
         usp={usp}
         info={footer.info}
+        lcp={true}
       />
       {content.entry?.slug == "cookies" && <ChangeCookies />}
     </Layout>

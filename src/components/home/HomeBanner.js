@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Container from "../base/Container";
 import Image from "next/image";
 import parse from "html-react-parser";
+import HomeBannerImage from "../../../public/img/homebanner.jpeg";
 
 const HomeBanner = ({ content }) => {
   return (
@@ -20,13 +21,13 @@ const HomeBanner = ({ content }) => {
         <div className="relative col-span-5 mt-6 block w-full items-center md:mt-0">
           <Image
             alt="Home Figure"
-            src={content.itemImage[0].url}
+            src={HomeBannerImage}
             layout="responsive"
             width={613}
             height={555}
             priority
-            sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
-            placeholder="empty"
+            sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
+            placeholder="blur"
           />
         </div>
       </div>

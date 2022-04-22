@@ -7,8 +7,9 @@ import SparkBig from "../../../public/img/svg/spark-big.svg";
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
 import BlurImage from "../base/BlurImage";
+import Image from "next/image";
 
-const MediaText = ({ content, index }) => {
+const MediaText = ({ content, index, lcp }) => {
   const contentPos =
     content.itemMediaPosition === "left" ? "col-start-7" : "col-start-1";
   const imgPos =
@@ -94,24 +95,25 @@ const MediaText = ({ content, index }) => {
                 placeholder="empty"
               />
             </div> */}
-            <BlurImage
+            {/* <BlurImage
               alt={content.itemImage[0].title}
               src={content.itemImage[0].url}
               layout="responsive"
               width={612}
               height={408}
-              sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
-              priority={index == 1 ? "true" : false}
-            />
-            {/* <Image
-              alt={content.itemImage[0].title}
-              src={content.itemImage[0].url}
-              layout="responsive"
-              width={612}
-              height={408}
-              sizes="(max-width: 374px) 342px,(max-width: 767px) 735px ,613px"
-              placeholder="empty"
+              sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
+              priority={index == 1 && lcp ? "true" : false}
             /> */}
+            <Image
+              alt={content.itemImage[0].title}
+              src={content.itemImage[0].url}
+              layout="responsive"
+              width={612}
+              height={408}
+              sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/+3pfwAJsQPbaaNDqQAAAABJRU5ErkJggg=="
+            />
           </div>
         </div>
       </Container>

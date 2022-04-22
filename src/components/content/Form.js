@@ -11,7 +11,7 @@ const Form = ({ content, info }) => {
           {parse(content.itemIntro)}
         </div>
         <div className="grid gap-12 md:grid-cols-2">
-          <FormUI thanksSlug={content.itemThanksPage[0].slug} />
+          <FormUI thanksSlug={content?.itemThanksPage[0]?.slug} />
           <div className="flex md:justify-end">
             <div className="flex flex-col">
               <div className="mb-2 flex">
