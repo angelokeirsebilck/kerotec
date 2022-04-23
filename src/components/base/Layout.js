@@ -4,7 +4,6 @@ import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
 import useGlobalState from "../../hooks/useGlobalState";
 import { useRouter } from "next/router";
-import { deleteAllCookies } from "../../utils/deleteAllCookies";
 import Footer from "./Footer";
 
 const Layout = ({ seo, mainNav, footer, children, border }) => {
