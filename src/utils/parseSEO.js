@@ -21,8 +21,17 @@ export default function parseSEO(seo) {
   const links = flattenValues(metaLinkContainer);
   const jsonLd = flattenValues(metaJsonLdContainer);
 
+  const descr = meta?.filter((item) => {
+    if (item.name == "description") {
+      return item.content;
+    }
+  });
+
+  console.log(descr[0].content);
+
   return {
     title: metaTitleContainer.title.title,
+    descr: descr[0].content,
     meta,
     links,
     jsonLd,
