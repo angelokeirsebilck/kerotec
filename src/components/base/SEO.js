@@ -18,15 +18,16 @@ function Seo({ title, meta, links, jsonLd }) {
           {JSON.stringify(item)}
         </script>
       ))}
-      {process.env.NEXT_PUBLIC_IS_LIVE == 1 && getCookieConsentValue() == true && (
-        <>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=G-WHSEVTMEV1`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
+      {process.env.NEXT_PUBLIC_IS_LIVE == 1 &&
+        getCookieConsentValue() == "true" && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=G-WHSEVTMEV1`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -34,10 +35,10 @@ function Seo({ title, meta, links, jsonLd }) {
                     page_path: window.location.pathname,
                     });
                 `,
-            }}
-          />
-        </>
-      )}
+              }}
+            />
+          </>
+        )}
     </Head>
   );
 }

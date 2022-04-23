@@ -7,6 +7,7 @@ import Layout from "../components/base/Layout";
 import parseSEO from "../utils/parseSEO";
 import Content from "../components/content/Content";
 import { uspQuery } from "../gql/global/usp.gql";
+import { getCookieConsentValue } from "react-cookie-consent";
 
 export async function getStaticProps() {
   const params = {
@@ -31,6 +32,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ mainNav, footer, content, usp }) {
+  console.log("test", getCookieConsentValue());
   return (
     <Layout border={true} mainNav={mainNav} footer={footer}>
       <HomeBanner content={content.entry.fieldHomeBannerKerotec[0]} />
