@@ -28,9 +28,10 @@ const Form = ({ thanksSlug }) => {
         method: "POST",
       });
       const result = await response.json();
-      reset();
-      setIsLoading(false);
+
       router.push(`/${thanksSlug}`);
+      setIsLoading(false);
+      reset();
     } catch (error) {
       console.log(error);
       setIsLoading(false);

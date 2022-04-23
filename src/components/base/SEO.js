@@ -18,7 +18,7 @@ function Seo({ title, meta, links, jsonLd }) {
           {JSON.stringify(item)}
         </script>
       ))}
-      {process.env.NEXT_PUBLIC_IS_LIVE == 1 && getCookieConsentValue() && (
+      {process.env.NEXT_PUBLIC_IS_LIVE == 1 && getCookieConsentValue() == true && (
         <>
           <script
             async
