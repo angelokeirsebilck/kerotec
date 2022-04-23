@@ -32,7 +32,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ mainNav, footer, content, usp }) {
-  console.log("test", getCookieConsentValue());
   return (
     <Layout border={true} mainNav={mainNav} footer={footer}>
       <HomeBanner content={content.entry.fieldHomeBannerKerotec[0]} />
