@@ -5,7 +5,7 @@ import { Squash as Hamburger } from "hamburger-react";
 import Menu from "../nav/Menu";
 import Container from "./Container";
 import Headroom from "react-headroom";
-import Logo from "../../../public/img/kerotec-logo.png";
+import Logo from "../../../public/img/kerotec-logo.jpg";
 import { useLockBodyScroll, useToggle } from "react-use";
 import useGlobalState from "../../hooks/useGlobalState";
 
@@ -22,7 +22,7 @@ const Header = ({ mainNav, border }) => {
         <Container>
           <header
             className={`${headerTranslateFix} ${
-              border ? " border-b-4 border-primary-bg" : ""
+              border ? " border-b-4 border-primary-light" : ""
             } flex  items-center justify-between bg-white py-4 md:py-10`}
           >
             <Link href="/">
@@ -31,8 +31,8 @@ const Header = ({ mainNav, border }) => {
                   <Image
                     alt="Kerotec Logo"
                     src={Logo}
-                    width={250}
-                    height={42.6}
+                    width={218}
+                    height={46}
                     priority
                     placeholder="empty"
                   />

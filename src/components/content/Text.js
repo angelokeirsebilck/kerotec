@@ -5,9 +5,10 @@ import parse from "html-react-parser";
 const Text = ({ content }) => {
   return (
     <Container>
-      <div className="section prose-style">
-        {parse(content.itemText, { minWordLength: 10 })}
-      </div>
+      <div
+        className="section prose-style"
+        dangerouslySetInnerHTML={{ __html: content.itemText }}
+      />
     </Container>
   );
 };

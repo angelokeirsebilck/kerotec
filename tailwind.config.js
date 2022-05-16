@@ -1,3 +1,5 @@
+const { none } = require("ramda");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
@@ -12,14 +14,21 @@ module.exports = {
       body: "#000",
       white: "#FFF",
       error: {
-        DEFAULT: "#F87171",
+        DEFAULT: "#E73A2E",
       },
       primary: {
-        light: "#ffd995",
-        DEFAULT: "#fead1b",
+        light: "#8ab3a0",
+        DEFAULT: "#006134",
         dark: "#E59401",
         hover: "#765821",
-        bg: "#fff6e5",
+        bg: "#fbfbfb",
+      },
+      secondary: {
+        light: "#ffd995",
+        DEFAULT: "#E73A2E",
+        dark: "#E59401",
+        hover: "#765821",
+        bg: "#f2f2f2",
       },
       blue: {
         DEFAULT: "#1B6CFE",
@@ -56,19 +65,24 @@ module.exports = {
       },
       typography: (theme) => ({
         DEFAULT: {
-          css: {
-            p: {
-              fontSize: theme("fontSize.base"),
-              color: theme("colors.body"),
-              fontWeight: 300,
-            },
-            a: {
-              color: theme("colors.primary.DEFAULT"),
-              "&:hover": {
-                color: theme("colors.primary.hover"),
+          css: [
+            {
+              p: {
+                fontSize: theme("fontSize.base"),
+                color: theme("colors.body"),
+                fontWeight: 300,
+              },
+              a: {
+                color: theme("colors.primary.DEFAULT"),
+                "&:hover": {
+                  color: theme("colors.primary.hover"),
+                },
+              },
+              ".swiper-button-disabled": {
+                opacity: 0.3,
               },
             },
-          },
+          ],
         },
       }),
     },

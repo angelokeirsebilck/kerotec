@@ -15,6 +15,15 @@ export const homeEntryQuery = gql`
             }
             itemIntro
             itemTitle
+            itemLink {
+              ... on itemLink_typeLink_BlockType {
+                id
+                itemLabel
+                itemLink {
+                  slug
+                }
+              }
+            }
           }
         }
         ${seomatic}

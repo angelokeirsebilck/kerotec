@@ -30,7 +30,11 @@ select:-webkit-autofill:focus {
 }
 
 .btn-primary {
-  @apply border-2 border-primary bg-primary text-body hover:bg-transparent;
+  @apply border-2 border-primary bg-primary text-white hover:bg-transparent hover:text-primary;
+}
+
+.btn-secondary {
+  @apply border-2 border-secondary bg-secondary text-white hover:bg-transparent hover:text-secondary;
 }
 
 .btn-black {
@@ -105,7 +109,7 @@ select:-webkit-autofill:focus {
 }
 
 .prose-style {
-  @apply prose leading-snug tracking-1 prose-h2:text-4xl prose-h2:font-semibold prose-h3:text-3xl prose-h4:text-2xl prose-a:transition-colors prose-ul:list-none prose-ul:pl-0 prose-li:break-inside-avoid-column prose-li:pl-8 prose-li:pb-2 prose-li:text-base prose-li:font-light md:prose-h2:text-5xl md:prose-h3:text-4xl md:prose-h4:text-3xl md:prose-ul:columns-2;
+  @apply prose leading-snug tracking-1 prose-h2:text-4xl prose-h2:font-semibold prose-h3:text-3xl prose-h4:text-2xl prose-a:transition-colors hover:prose-a:text-secondary prose-ul:list-none prose-ul:pl-0 prose-li:break-inside-avoid-column prose-li:pl-8 prose-li:pb-2 prose-li:text-base prose-li:font-light md:prose-h2:text-5xl md:prose-h3:text-4xl md:prose-h4:text-3xl md:prose-ul:columns-2;
 }
 
 .section {

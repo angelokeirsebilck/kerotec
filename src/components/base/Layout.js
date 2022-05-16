@@ -26,13 +26,19 @@ const Layout = ({ seo, mainNav, footer, children, border }) => {
         buttonText="Accepteer"
         declineButtonText="Weiger"
         style={{ background: "#000", fontSize: "16px" }}
-        buttonStyle={{ background: "#fead1b", fontSize: "16px" }}
+        buttonStyle={{
+          background: "#006134",
+          fontSize: "16px",
+          borderRadius: "6px",
+          color: "white",
+        }}
         declineButtonStyle={{
           background: "transparent",
           fontSize: "16px",
-          borderWidth: "1px",
+          borderWidth: "2px",
           borderStyle: "solid",
-          borderColor: "#fead1b",
+          borderColor: "#006134",
+          borderRadius: "6px",
         }}
         onDecline={() => {
           changeShowCookiepopup("byCookieValue");

@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "../base/Container";
 import { hyphenateSync } from "hyphen/nl";
-import Image from "next/image";
 
 // Hooks
 import useSwiperRef from "../../hooks/useSwiperRef";
@@ -64,7 +63,7 @@ const References = ({ content }) => {
                 <div
                   className={`relative  px-16 py-6 ${
                     content.itemBackgroundColor === "light"
-                      ? "bg-white"
+                      ? "bg-primary-light"
                       : "bg-primary-light"
                   }`}
                 >

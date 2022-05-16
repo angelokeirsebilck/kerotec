@@ -15,30 +15,30 @@ const Form = ({ content, info }) => {
           <div className="flex md:justify-end">
             <div className="flex flex-col">
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold text-primary">T</span>
+                <span className="mr-2.5 font-bold text-secondary">T</span>
                 <a
                   href={`tel:${info.fieldTel1.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors hover:text-primary"
+                  className="font-medium transition-colors hover:text-secondary"
                 >
-                  {info.fieldTel1} - <span className="text-primary">Ke</span>
+                  {info.fieldTel1} - <span className="text-secondary">Ke</span>
                   irsebilck Diego
                 </a>
               </div>
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold text-primary">T</span>
+                <span className="mr-2.5 font-bold text-secondary">T</span>
                 <a
                   href={`tel:${info.fieldTel2.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors hover:text-primary"
+                  className="font-medium transition-colors hover:text-secondary"
                 >
-                  {info.fieldTel2} - <span className="text-primary">Ro</span>
+                  {info.fieldTel2} - <span className="text-secondary">Ro</span>
                   sseel Jeroen
                 </a>
               </div>
               <div className="flex">
-                <span className="mr-2.5 font-bold text-primary">E</span>
+                <span className="mr-2.5 font-bold text-secondary">E</span>
                 <a
                   href={`mailto:${info.fieldEmail.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors  hover:text-primary"
+                  className="font-medium transition-colors  hover:text-secondary"
                 >
                   {info.fieldEmail}
                 </a>

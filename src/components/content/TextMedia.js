@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import parse from "html-react-parser";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
 import SparkBig from "../../../public/img/svg/spark-big.svg";
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
-import BlurImage from "../base/BlurImage";
 import Image from "next/image";
 
 const MediaText = ({ content, index, lcp }) => {
@@ -64,9 +62,11 @@ const MediaText = ({ content, index, lcp }) => {
               className="font-sans heading1-clamp mb-6 font-semibold tracking-3 md:mb-12"
               dangerouslySetInnerHTML={createTitleHTML()}
             /> */}
-            <div className="prose-style ">
-              {parse(content.itemText, { minWordLength: 10 })}
-            </div>
+            <div
+              className="prose-style "
+              dangerouslySetInnerHTML={{ __html: content.itemText }}
+            />
+
             {content.itemLink.length > 0 && (
               <div className="mt-6 md:mt-12">
                 <ThemeButton

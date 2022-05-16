@@ -30,7 +30,7 @@ const USP = ({ content, usp }) => {
                   height={70}
                   width="100%"
                   preProcessor={(code) =>
-                    code.replace(/fill=".*?"/g, 'fill="#fead1b"')
+                    code.replace(/fill=".*?"/g, 'fill="#006134"')
                   }
                 />
 

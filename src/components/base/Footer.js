@@ -24,38 +24,38 @@ const Footer = ({ footer }) => {
                     <Image
                       alt="Kerotec Logo"
                       src={Logo}
-                      width={250}
-                      height={42.6}
+                      width={218}
+                      height={46}
                     />
                   </a>
                 </Link>
               </div>
 
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold text-primary">T</span>
+                <span className="mr-2.5 font-bold text-secondary">T</span>
                 <a
                   href={`tel:${info.fieldTel1.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors hover:text-primary"
+                  className="font-medium transition-colors hover:text-secondary"
                 >
-                  {info.fieldTel1} - <span className="text-primary">Ke</span>
+                  {info.fieldTel1} - <span className="text-secondary">Ke</span>
                   irsebilck Diego
                 </a>
               </div>
               <div className="mb-2 flex">
-                <span className="mr-2.5 font-bold text-primary">T</span>
+                <span className="mr-2.5 font-bold text-secondary">T</span>
                 <a
                   href={`tel:${info.fieldTel2.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors hover:text-primary"
+                  className="font-medium transition-colors hover:text-secondary"
                 >
-                  {info.fieldTel2} - <span className="text-primary">Ro</span>
+                  {info.fieldTel2} - <span className="text-secondary">Ro</span>
                   sseel Jeroen
                 </a>
               </div>
               <div className="flex">
-                <span className="mr-2.5 font-bold text-primary">E</span>
+                <span className="mr-2.5 font-bold text-secondary">E</span>
                 <a
                   href={`mailto:${info.fieldEmail.replace(/\s+/g, "")}`}
-                  className="font-medium transition-colors  hover:text-primary"
+                  className="font-medium transition-colors  hover:text-secondary"
                 >
                   {info.fieldEmail}
                 </a>
@@ -68,7 +68,7 @@ const Footer = ({ footer }) => {
               <ul className="ml-0 mb-0 columns-2 break-inside-avoid">
                 <li>
                   <Link href="/">
-                    <a className="mb-2 inline-block break-inside-avoid font-medium  transition-colors hover:text-primary">
+                    <a className="mb-2 inline-block break-inside-avoid font-medium  transition-colors hover:text-secondary">
                       Home
                     </a>
                   </Link>
@@ -77,7 +77,7 @@ const Footer = ({ footer }) => {
                   return (
                     <li key={index}>
                       <Link href={`/${link.itemLink[0].slug}`}>
-                        <a className="mb-2 inline-block break-inside-avoid font-medium  transition-colors hover:text-primary">
+                        <a className="mb-2 inline-block break-inside-avoid font-medium  transition-colors hover:text-secondary">
                           {" "}
                           {link.itemLink[0].title}
                         </a>
@@ -103,7 +103,7 @@ const Footer = ({ footer }) => {
                   <a
                     href={socials.fieldFacebook}
                     target="_blank"
-                    className="ml-6 text-body transition-colors hover:text-primary"
+                    className="ml-6 text-body transition-colors hover:text-secondary"
                     rel="nofollow noreferrer"
                   >
                     <FaFacebookF color="text-inherit" size={24} />
@@ -118,20 +118,20 @@ const Footer = ({ footer }) => {
         <Container>
           <div className="flex flex-col items-center justify-between md:flex-row md:items-start">
             <div className="flex flex-col items-center md:flex-row md:items-start">
-              <span> © {new Date().getFullYear()} KEROTEC</span>
+              <span> © {new Date().getFullYear()} kerotec</span>
               <div className="flex items-center md:ml-6 md:items-start">
                 <Link
                   href="/privacy-policy"
-                  className="transition-colors hover:text-primary"
+                  className="transition-colors hover:text-secondary"
                 >
-                  <a className="transition-colors hover:text-primary">
+                  <a className="transition-colors hover:text-secondary">
                     {" "}
                     Privacy Policy
                   </a>
                 </Link>
                 <span className="mx-1">-</span>
                 <Link href="/cookies">
-                  <a className="transition-colors hover:text-primary">
+                  <a className="transition-colors hover:text-secondary">
                     Cookies
                   </a>
                 </Link>
@@ -140,7 +140,7 @@ const Footer = ({ footer }) => {
             <div className="">
               <a
                 href="mailto:info@angelokeirsebilck.be"
-                className="transition-colors hover:text-primary"
+                className="transition-colors hover:text-secondary"
               >
                 website by aK
               </a>
