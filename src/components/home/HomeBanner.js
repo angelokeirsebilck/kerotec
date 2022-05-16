@@ -19,7 +19,7 @@ const HomeBanner = ({ content }) => {
             className="text-xl font-medium prose-strong:font-semibold prose-strong:text-primary md:text-3xl"
             dangerouslySetInnerHTML={{ __html: content.itemIntro }}
           />
-          {content.itemLink && (
+          {content.itemLink.length > 0 && (
             <div className="mt-6">
               <ThemeButton
                 className="btn-secondary"
