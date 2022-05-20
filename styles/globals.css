@@ -19,6 +19,10 @@ select:-webkit-autofill:focus {
   /* html {
     font-size: 62.5% !important;
   } */
+  .swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
 }
 
 .btn {

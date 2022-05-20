@@ -48,6 +48,7 @@ export async function getStaticPaths() {
       return {
         params: {
           slug: page.slug,
+          type: page.__typename,
         },
       };
     }
@@ -60,11 +61,16 @@ export async function getStaticPaths() {
 }
 
 export default function DefaultPage({ mainNav, footer, usp, content }) {
+  let contentMatrix = content.entry.fieldContentKerotec;
+  if (content.entry.__typename == "kerotecSeoPages_default_Entry") {
+    contentMatrix = content.entry.fieldKerotecSEOContent[0].fieldContentKerotec;
+  }
+
   return (
     <Layout border={false} mainNav={mainNav} footer={footer}>
       <Title title={content.entry.title} />
       <Content
-        content={content.entry.fieldContentKerotec}
+        content={contentMatrix}
         usp={usp}
         info={footer.info}
         lcp={true}

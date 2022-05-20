@@ -5,6 +5,11 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /swiper/,
+    },
+  ],
   theme: {
     fontFamily: {
       body: "Montserrat, sans-serif",
@@ -21,7 +26,7 @@ module.exports = {
         DEFAULT: "#006134",
         dark: "#E59401",
         hover: "#765821",
-        bg: "#fbfbfb",
+        bg: "#bbd2c7",
       },
       secondary: {
         light: "#ffd995",
@@ -77,9 +82,6 @@ module.exports = {
                 "&:hover": {
                   color: theme("colors.primary.hover"),
                 },
-              },
-              ".swiper-button-disabled": {
-                opacity: 0.3,
               },
             },
           ],

@@ -63,7 +63,7 @@ const References = ({ content }) => {
                 <div
                   className={`relative  px-16 py-6 ${
                     content.itemBackgroundColor === "light"
-                      ? "bg-primary-light"
+                      ? "bg-white"
                       : "bg-primary-light"
                   }`}
                 >

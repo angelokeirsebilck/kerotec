@@ -13,7 +13,7 @@ const Cta = ({ content }) => {
   const textColor =
     content.itemBackgroundColor === "light" ? "text-white" : "text-body";
   const btnClass =
-    content.itemBackgroundColor === "white" ? "btn-primary" : "btn-black";
+    content.itemBackgroundColor === "white" ? "btn-primary" : "btn-secondary";
 
   return (
     <div

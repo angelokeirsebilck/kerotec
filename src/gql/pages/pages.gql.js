@@ -4,21 +4,11 @@ import { seomatic } from "../global/seomatic.gql";
 
 export const pagesQuery = gql`
   query pagesQuery($siteId: [QueryArgument]!, $slug: [String]!) {
-    entry(siteId: $siteId, section: ["pagesKerotec", "legalKerotec"], slug: $slug) {
+    entry(siteId: $siteId, section: ["pagesKerotec", "legalKerotec","kerotecSeoPages"], slug: $slug) {
       ... on pagesKerotec_default_Entry {
         __typename
         slug
         title
-        fieldContentKerotec {
-          ... on fieldContentKerotec_typeTextMedia_BlockType {
-            __typename
-            itemImage {
-              url
-            }
-            itemText
-            itemTitle
-          }
-        }
         ${seomatic}
         ${content}
       }
@@ -26,16 +16,6 @@ export const pagesQuery = gql`
         __typename
         slug
         title
-        fieldContentKerotec {
-          ... on fieldContentKerotec_typeTextMedia_BlockType {
-            __typename
-            itemImage {
-              url
-            }
-            itemText
-            itemTitle
-          }
-        }
         ${seomatic}
         ${content}
       }
@@ -43,18 +23,22 @@ export const pagesQuery = gql`
         __typename
         slug
         title
-        fieldContentKerotec {
-          ... on fieldContentKerotec_typeTextMedia_BlockType {
-            __typename
-            itemImage {
-              url
-            }
-            itemText
-            itemTitle
-          }
-        }
         ${seomatic}
         ${content}
+      }
+      ... on kerotecSeoPages_default_Entry {
+        slug
+        title
+        __typename
+        fieldKerotecSeoPlace
+        fieldKerotecSeoTitle
+        ${seomatic}
+        fieldKerotecSEOContent {
+          ... on kerotecSeoPagesContent_default_Entry {
+            id
+            ${content}
+          }
+        }
       }
     }
   }
