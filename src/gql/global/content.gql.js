@@ -75,6 +75,8 @@ fieldContentKerotec {
       itemImage {
         url
         title
+        height
+        width
       }
     }
   }

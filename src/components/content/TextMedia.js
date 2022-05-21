@@ -85,7 +85,7 @@ const MediaText = ({ content, index, lcp }) => {
             {showLinesDownRight && (
               <LinesDownRight className="absolute -bottom-40 right-1/3 hidden md:block xl:-right-1/4" />
             )}
-            <div className="image-container">
+            {/* <div className="image-container">
               <Image
                 alt={content.itemImage[0].title}
                 src={content.itemImage[0].url}
@@ -95,7 +95,7 @@ const MediaText = ({ content, index, lcp }) => {
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/+3pfwAJsQPbaaNDqQAAAABJRU5ErkJggg=="
               />
-            </div>
+            </div> */}
             {/* <BlurImage
               alt={content.itemImage[0].title}
               src={content.itemImage[0].url}
@@ -105,16 +105,16 @@ const MediaText = ({ content, index, lcp }) => {
               sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
               priority={index == 1 && lcp ? "true" : false}
             /> */}
-            {/* <Image
+            <Image
               alt={content.itemImage[0].title}
               src={content.itemImage[0].url}
               layout="responsive"
-              width={612}
-              height={408}
+              width={content.itemImage[0].width}
+              height={content.itemImage[0].height}
               sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/+3pfwAJsQPbaaNDqQAAAABJRU5ErkJggg=="
-            /> */}
+              placeholder="empty"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcfel4PQAHeQLVYPgcKAAAAABJRU5ErkJggg=="
+            />
           </div>
         </div>
       </Container>
