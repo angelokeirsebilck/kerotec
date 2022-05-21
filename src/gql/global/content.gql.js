@@ -5,6 +5,15 @@ fieldContentKerotec {
       id
       itemText
       itemTitle
+      itemLink {
+        ... on itemLink_BlockType {
+          id
+          itemLabel
+          itemLink {
+            slug
+          }
+        }
+      }
     }
     ... on fieldContentKerotec_typeReferences_BlockType {
       __typename

@@ -62,6 +62,7 @@ export async function getStaticPaths() {
 
 export default function DefaultPage({ mainNav, footer, usp, content }) {
   let contentMatrix = content.entry.fieldContentKerotec;
+
   if (content.entry.__typename == "kerotecSeoPages_default_Entry") {
     contentMatrix = content.entry.fieldKerotecSEOContent[0].fieldContentKerotec;
   }

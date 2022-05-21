@@ -17,7 +17,7 @@ const Header = ({ mainNav, border }) => {
   const headerTranslateFix = isNavOpen ? "transform translate-y-0" : "";
 
   return (
-    <div className={`relative z-50 bg-white `}>
+    <header className={`relative z-50 bg-white `}>
       <Headroom disableInlineStyles className={isNavOpen ? "is-open" : ""}>
         <Container>
           <header
@@ -53,7 +53,7 @@ const Header = ({ mainNav, border }) => {
           </header>
         </Container>
       </Headroom>
-    </div>
+    </header>
   );
 };
 

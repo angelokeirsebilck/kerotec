@@ -13,7 +13,7 @@ const Footer = ({ footer }) => {
   const info = footer?.info;
 
   return (
-    <div className="">
+    <footer className="mt-auto">
       <div className="bg-primary-bg py-8 text-footer md:py-16">
         <Container>
           <div className="gap-6 text-body md:grid-cols-12 lg:grid">
@@ -148,7 +148,7 @@ const Footer = ({ footer }) => {
           </div>
         </Container>
       </div>
-    </div>
+    </footer>
   );
 };
 

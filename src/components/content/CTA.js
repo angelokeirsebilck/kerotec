@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { hyphenateSync } from "hyphen/nl";
+// import { hyphenateSync } from "hyphen/nl";
 // Components
 import ThemeButton from "../base/Button";
 import Container from "../base/Container";
@@ -43,14 +43,16 @@ const Cta = ({ content }) => {
               <h2
                 className={`heading1-clamp font-semibold tracking-3 ${textColor}`}
               >
-                {hyphenateSync(ctaContent.itemTitle, { minWordLength: 10 })}
+                {/* {hyphenateSync(ctaContent.itemTitle, { minWordLength: 10 })} */}
+                {ctaContent.itemTitle}
               </h2>
             </div>
             <div className="flex flex-col justify-between md:col-span-4 md:col-start-9 md:items-end">
               <div
                 className={`heading3-clamp font-medium md:text-right ${textColor}`}
               >
-                {hyphenateSync(ctaContent.itemText, { minWordLength: 10 })}
+                {/* {hyphenateSync(ctaContent.itemText, { minWordLength: 10 })} */}
+                {ctaContent.itemText}
               </div>
               {ctaContent.itemLink.length > 0 && (
                 <div className="mt-6">

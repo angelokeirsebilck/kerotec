@@ -1,6 +1,5 @@
 import React from "react";
 import SVG from "react-inlinesvg";
-import parse from "html-react-parser";
 
 // Components
 import Container from "../base/Container";
@@ -34,9 +33,10 @@ const USP = ({ content, usp }) => {
                   }
                 />
 
-                <span className="mt-6 inline-block text-center text-base font-semibold tracking-1 text-body">
-                  {parse(usp.itemText)}
-                </span>
+                <span
+                  className="mt-6 inline-block text-center text-base font-semibold tracking-1 text-body"
+                  dangerouslySetInnerHTML={{ __html: usp.itemText }}
+                />
               </div>
             );
           })}

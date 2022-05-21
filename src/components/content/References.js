@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../base/Container";
-import { hyphenateSync } from "hyphen/nl";
+// import { hyphenateSync } from "hyphen/nl";
 
 // Hooks
 import useSwiperRef from "../../hooks/useSwiperRef";
@@ -30,7 +30,8 @@ const References = ({ content }) => {
       <Container>
         <div className="relative">
           <h2 className="font-sans heading1-clamp mb-6 font-semibold tracking-3 md:mb-12">
-            {hyphenateSync(content.itemTitle, { minWordLength: 10 })}
+            {/* {hyphenateSync(content.itemTitle, { minWordLength: 10 })} */}
+            {content.itemTitle}
           </h2>
           <div className="right-0 bottom-0 mb-6 flex md:absolute md:mb-0">
             <ButtonPrev ref={prevElRef} />
