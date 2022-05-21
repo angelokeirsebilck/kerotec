@@ -1,8 +1,7 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import Cta from "./CTA";
-// import Form from "./Form";
-// import References from "./References";
+import Form from "./Form";
+import References from "./References";
 import Text from "./Text";
 import TextMedia from "./TextMedia";
 import USP from "./USP";
@@ -10,8 +9,8 @@ import USP from "./USP";
 // const USP = dynamic(() => import("./USP"));
 // const TextMedia = dynamic(() => import("./TextMedia"));
 // const Text = dynamic(() => import("./Text"));
-const References = dynamic(() => import("./References"));
-const Form = dynamic(() => import("./Form"));
+// const References = dynamic(() => import("./References"));
+// const Form = dynamic(() => import("./Form"));
 // const Cta = dynamic(() => import("./CTA"));
 
 const Content = ({ content, usp, info, lcp }) => {
