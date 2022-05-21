@@ -1,4 +1,5 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Cta from "./CTA";
 // import Form from "./Form";
 // import References from "./References";
