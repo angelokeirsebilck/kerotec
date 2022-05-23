@@ -18,7 +18,7 @@ const MediaText = ({ content, index, lcp }) => {
   const proseElements = useRef(null);
   const imgRef = useRef(null);
 
-  useEffectOnce(() => {
+  useEffect(() => {
     gsap.from(proseElements.current.children, {
       scrollTrigger: {
         trigger: proseElements.current,
@@ -34,7 +34,7 @@ const MediaText = ({ content, index, lcp }) => {
     };
   }, []);
 
-  useEffectOnce(() => {
+  useEffect(() => {
     gsap.from(imgRef.current, {
       scrollTrigger: {
         trigger: imgRef.current,

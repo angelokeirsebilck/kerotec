@@ -22,7 +22,7 @@ const sentryWebpackPluginOptions = {
 };
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: ["angelokeirsebilck.ams3.cdn.digitaloceanspaces.com"],
     formats: ["image/avif", "image/webp"],
