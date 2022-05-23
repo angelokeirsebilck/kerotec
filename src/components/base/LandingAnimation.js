@@ -31,15 +31,17 @@ const LandingAnimation = () => {
           ease: "power4.out",
           scaleY: 0,
           transformOrigin: "bottom",
+          pointerEvents: "none",
         },
-        "whiteDone-=1.2"
+        "whiteDone-=1"
       )
       .addLabel("greenDone", ">")
       .to(
         logoRef.current,
         {
           opacity: 0,
-          duration: 0,
+          duration: 0.2,
+          pointerEvents: "none",
         },
         "greenDone-=1.3"
       );
