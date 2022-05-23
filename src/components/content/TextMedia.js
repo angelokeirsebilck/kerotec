@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import LinesDown from "../../../public/img/svg/lines-down.svg";
 import LinesDownRight from "../../../public/img/svg/lines-down-right.svg";
@@ -6,8 +6,49 @@ import SparkBig from "../../../public/img/svg/spark-big.svg";
 import Container from "../base/Container";
 import ThemeButton from "../base/Button";
 import Image from "next/image";
+// import gsap from "gsap";
+import { useEffectOnce } from "../../hooks/useEffectOnce";
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MediaText = ({ content, index, lcp }) => {
+  const proseElements = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffectOnce(() => {
+    gsap.from(proseElements.current.children, {
+      scrollTrigger: {
+        trigger: proseElements.current,
+        start: "top 80%",
+        // markers: true,
+      },
+      opacity: 0,
+      y: 20,
+      stagger: 0.2,
+    });
+    return () => {
+      // Your cleanup code, including removeEventListeners
+    };
+  }, []);
+
+  useEffectOnce(() => {
+    gsap.from(imgRef.current, {
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "top 80%",
+        // markers: true,
+      },
+      opacity: 0,
+      y: 40,
+    });
+    return () => {
+      // Your cleanup code, including removeEventListeners
+    };
+  }, []);
+
   const contentPos =
     content.itemMediaPosition === "left" ? "col-start-7" : "col-start-1";
   const imgPos =
@@ -63,7 +104,8 @@ const MediaText = ({ content, index, lcp }) => {
               dangerouslySetInnerHTML={createTitleHTML()}
             /> */}
             <div
-              className="prose-style "
+              className="prose-style"
+              ref={proseElements}
               dangerouslySetInnerHTML={{ __html: content.itemText }}
             />
 
@@ -105,16 +147,18 @@ const MediaText = ({ content, index, lcp }) => {
               sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
               priority={index == 1 && lcp ? "true" : false}
             /> */}
-            <Image
-              alt={content.itemImage[0].title}
-              src={content.itemImage[0].url}
-              layout="responsive"
-              width={content.itemImage[0].width}
-              height={content.itemImage[0].height}
-              sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
-              placeholder="empty"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcfel4PQAHeQLVYPgcKAAAAABJRU5ErkJggg=="
-            />
+            <div className="relative block" ref={imgRef}>
+              <Image
+                alt={content.itemImage[0].title}
+                src={content.itemImage[0].url}
+                layout="responsive"
+                width={content.itemImage[0].width}
+                height={content.itemImage[0].height}
+                sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
+                placeholder="empty"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcfel4PQAHeQLVYPgcKAAAAABJRU5ErkJggg=="
+              />
+            </div>
           </div>
         </div>
       </Container>

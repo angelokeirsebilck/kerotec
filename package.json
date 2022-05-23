@@ -19,6 +19,7 @@
     "clsx": "^1.1.1",
     "graphql": "^16.3.0",
     "graphql-request": "^4.2.0",
+    "gsap": "^3.10.4",
     "hamburger-react": "^2.5.0",
     "html-react-parser": "^1.4.10",
     "hyphen": "^1.6.4",
