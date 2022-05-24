@@ -12,6 +12,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showCookiePopup, setShowCookiepopup] = useState("byCookieValue");
   const [initialLoad, setInitialLoad] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {}, []);
 
@@ -23,6 +24,10 @@ export const GlobalStateProvider = ({ children }) => {
     setShowCookiepopup(value);
   };
 
+  const changeSetIsTransitioning = (value) => {
+    setIsTransitioning(value);
+  };
+
   const memoedValue = useMemo(
     () => ({
       isNavOpen,
@@ -31,6 +36,8 @@ export const GlobalStateProvider = ({ children }) => {
       changeShowCookiepopup,
       initialLoad,
       setInitialLoad,
+      changeSetIsTransitioning,
+      isTransitioning,
     }),
     [isNavOpen, showCookiePopup, initialLoad]
   );

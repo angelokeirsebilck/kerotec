@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 
 const PageTransition = () => {
-  const { initialLoad, setInitialLoad } = useGlobalState();
+  const { changeSetIsTransitioning } = useGlobalState();
   const logoRef = useRef(null);
   const containerRefWhite = useRef(null);
   const containerRefPrimary = useRef(null);
@@ -19,6 +19,7 @@ const PageTransition = () => {
   }, []);
 
   const pageTransitionAnimation = () => {
+    changeSetIsTransitioning(true);
     const pageTrans = gsap.timeline({
       onComplete: () => {
         pageTrans.pause(0);
@@ -38,6 +39,9 @@ const PageTransition = () => {
         duration: 1.5,
         ease: "power4.out",
         transformOrigin: "top",
+        onComplete: () => {
+          changeSetIsTransitioning(false);
+        },
       })
       .to(containerRefPrimary.current, {
         duration: 1.5,
