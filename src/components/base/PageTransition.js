@@ -11,68 +11,37 @@ const PageTransition = () => {
   const containerRefWhite = useRef(null);
   const containerRefPrimary = useRef(null);
   const router = useRouter();
+  const pageTrans = gsap.timeline();
 
   useEffect(() => {
     router.events.on("routeChangeStart", () => {
-      changeSetIsTransitioning(true);
-      setTimeout(() => {
-        pageTransitionAnimation();
-      }, 1000);
+      pageEnterTransition();
     });
-    // pageTransitionAnimation();
-  }, [router]);
+    router.events.on("routeChangeComplete", () => {
+      pageExitTransition();
+    });
+  }, [router.events]);
 
-  const pageTransitionAnimation = () => {
-    console.log("page trans");
-
-    const pageTrans = gsap.timeline({
+  const pageEnterTransition = () => {
+    console.log("enter trans");
+    pageTrans.to(containerRefPrimary.current, {
+      scaleY: 1,
+      duration: 1.5,
+      ease: "power4.out",
+      transformOrigin: "top",
       onComplete: () => {
-        pageTrans.pause(0);
+        changeSetIsTransitioning(false);
       },
     });
+  };
 
-    // gsap.set(containerRefWhite.current, {
-    //   opacity: 1,
-    // });
-    // gsap.set(containerRefPrimary.current, {
-    //   opacity: 1,
-    // });
-
-    pageTrans
-      .to(containerRefPrimary.current, {
-        scaleY: 1,
-        duration: 1.5,
-        ease: "power4.out",
-        transformOrigin: "top",
-        onComplete: () => {
-          changeSetIsTransitioning(false);
-        },
-      })
-      .to(containerRefPrimary.current, {
-        duration: 1.5,
-        scaleY: 0,
-        transformOrigin: "bottom",
-      });
-    //   .addLabel("whiteDone", ">")
-    //   .to(
-    //     containerRefPrimary.current,
-    //     {
-    //       duration: 1.5,
-    //       ease: "power4.out",
-    //       scaleY: 1,
-    //       transformOrigin: "bottom",
-    //     },
-    //     "whiteDone-=1"
-    //   )
-    //   .addLabel("greenDone", ">")
-    //   .to(
-    //     logoRef.current,
-    //     {
-    //       opacity: 0,
-    //       duration: 0.2,
-    //     },
-    //     "greenDone-=1.3"
-    //   );
+  const pageExitTransition = () => {
+    console.log("exit trans");
+    pageTrans.to(containerRefPrimary.current, {
+      duration: 1.5,
+      scaleY: 0,
+      transformOrigin: "bottom",
+    });
   };
 
   return (

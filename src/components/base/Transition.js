@@ -14,42 +14,29 @@ const TransitionLayout = ({ children }) => {
     router.events.on("routeChangeStart", () => {
       changeSetIsTransitioning(true);
     });
+    router.events.on("routeChangeComplete", () => {
+      changeSetIsTransitioning(false);
+    });
+
     // pageTransitionAnimation();
   }, [router]);
 
   const pageEnterTransition = () => {
     console.log("page trans");
 
-    const pageTrans = gsap.timeline({
-      onComplete: () => {
-        pageTrans.pause(0);
-      },
+    const pageTrans = gsap.timeline({});
+    pageTrans.to(containerRefPrimary.current, {
+      scaleY: 1,
+      duration: 1.5,
+      ease: "power4.out",
+      transformOrigin: "top",
     });
-    pageTrans
-      .to(containerRefPrimary.current, {
-        scaleY: 1,
-        duration: 1.5,
-        ease: "power4.out",
-        transformOrigin: "top",
-        onComplete: () => {
-          changeSetIsTransitioning(false);
-        },
-      })
-      .to(containerRefPrimary.current, {
-        duration: 1.5,
-        scaleY: 0,
-        transformOrigin: "bottom",
-      });
   };
 
   const pageExitTransition = () => {
     console.log("page trans");
 
-    const pageTrans = gsap.timeline({
-      onComplete: () => {
-        pageTrans.pause(0);
-      },
-    });
+    const pageTrans = gsap.timeline({});
     pageTrans.to(containerRefPrimary.current, {
       duration: 1.5,
       scaleY: 0,
@@ -67,7 +54,6 @@ const TransitionLayout = ({ children }) => {
         }}
         onEntered={() => {
           console.log("onEntered");
-          changeSetIsTransitioning(false);
         }}
         onEntering={() => {
           console.log("onEntering");
