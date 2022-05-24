@@ -26,6 +26,7 @@ export const GlobalStateProvider = ({ children }) => {
 
   const changeSetIsTransitioning = (value) => {
     setIsTransitioning(value);
+    console.log("is transitioning changed");
   };
 
   const memoedValue = useMemo(

@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <GlobalStateProvider>
       <PageTransition />
       <Seo {...seo} />
-      {!isTransitioning && <Component {...props} />}
+      {!isTransitioning ? <Component {...props} /> : null}
     </GlobalStateProvider>
   );
 }

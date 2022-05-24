@@ -41,6 +41,7 @@ const PageTransition = () => {
         transformOrigin: "top",
         onComplete: () => {
           changeSetIsTransitioning(false);
+          console.log("set transition false");
         },
       })
       .to(containerRefPrimary.current, {

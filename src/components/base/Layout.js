@@ -45,7 +45,6 @@ const Layout = ({ seo, mainNav, footer, children, border }) => {
       <Header border={border} mainNav={mainNav} />
       <main>{children}</main>
       {/* <LandingAnimation /> */}
-      <PageTransition />
       <Footer footer={footer} />
       {showCookiePopup && (
         <CookieConsent
