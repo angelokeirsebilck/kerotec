@@ -27,8 +27,6 @@ export default function parseSEO(seo) {
     }
   });
 
-  console.log(descr[0].content);
-
   return {
     title: metaTitleContainer.title.title,
     descr: descr[0].content,

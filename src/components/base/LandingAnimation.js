@@ -1,27 +1,51 @@
-import React, { useEffect, useRef } from "react";
-import Image from "next/image";
-import { useEffectOnce } from "../../hooks/useEffectOnce";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import Logo from "../../../public/img/svg/LOGO-ZW-BASELINE.svg";
+import useGlobalState from "../../hooks/useGlobalState";
+import clsx from "clsx";
+import { useRouter } from "next/router";
 
 const LandingAnimation = () => {
+  const { initialLoad, setInitialLoad } = useGlobalState();
   const logoRef = useRef(null);
   const containerRefWhite = useRef(null);
   const containerRefPrimary = useRef(null);
-  useEffect(() => {
-    const tl = gsap.timeline();
+  const router = useRouter();
 
-    tl.to(containerRefWhite.current, {
-      scaleY: 0,
-      transformOrigin: "bottom",
-      duration: 1.5,
-      delay: 1,
-      ease: "power4.out",
-    })
+  const pageTransitionStart = () => {
+    pageTransitionAnimation();
+  };
+
+  useEffect(() => {
+    if (!initialLoad) {
+      console.log("initial load false");
+      landingAnimation();
+    }
+
+    router.events.on("routeChangeStart", pageTransitionStart);
+  }, [router]);
+
+  const pageTransitionAnimation = () => {
+    const pageTrans = gsap.timeline();
+
+    gsap.set(containerRefWhite.current, {
+      opacity: 1,
+    });
+    gsap.set(containerRefPrimary.current, {
+      opacity: 1,
+    });
+
+    pageTrans
+      .to(containerRefWhite.current, {
+        scaleY: 1,
+        transformOrigin: "bottom",
+        duration: 1.5,
+        delay: 1,
+        ease: "power4.out",
+      })
       .to(containerRefWhite.current, {
         duration: 0,
         opacity: 0,
-        pointerEvents: "none",
       })
       .addLabel("whiteDone", ">")
       .to(
@@ -29,9 +53,8 @@ const LandingAnimation = () => {
         {
           duration: 1.5,
           ease: "power4.out",
-          scaleY: 0,
+          scaleY: 1,
           transformOrigin: "bottom",
-          pointerEvents: "none",
         },
         "whiteDone-=1"
       )
@@ -41,25 +64,72 @@ const LandingAnimation = () => {
         {
           opacity: 0,
           duration: 0.2,
-          pointerEvents: "none",
         },
         "greenDone-=1.3"
       );
-  }, []);
+  };
+
+  const landingAnimation = () => {
+    const landingTimeline = gsap.timeline({
+      onComplete: () => setInitialLoad(true),
+    });
+
+    landingTimeline
+      .to(containerRefWhite.current, {
+        scaleY: 0,
+        transformOrigin: "bottom",
+        duration: 1.5,
+        delay: 1,
+        ease: "power4.out",
+      })
+      .to(containerRefWhite.current, {
+        duration: 0,
+        opacity: 0,
+      })
+      .addLabel("whiteDone", ">")
+      .to(
+        containerRefPrimary.current,
+        {
+          duration: 1.5,
+          ease: "power4.out",
+          scaleY: 0,
+          transformOrigin: "bottom",
+        },
+        "whiteDone-=1"
+      )
+      .addLabel("greenDone", ">")
+      .to(
+        logoRef.current,
+        {
+          opacity: 0,
+          duration: 0.2,
+        },
+        "greenDone-=1.3"
+      );
+  };
 
   return (
     <>
       <div
         ref={containerRefPrimary}
-        className="fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center bg-primary"
+        className={clsx(
+          "pointer-events-none fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center bg-primary",
+          { "origin-top scale-y-0 transform opacity-0": initialLoad }
+        )}
       ></div>
       <div
         ref={containerRefWhite}
-        className="fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center bg-white"
+        className={clsx(
+          "pointer-events-none fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center bg-white",
+          { "origin-top scale-y-0 transform opacity-0": initialLoad }
+        )}
       ></div>
       <div
         ref={logoRef}
-        className="fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center"
+        className={clsx(
+          "pointer-events-none fixed top-0 bottom-0 left-0 right-0 z-50 flex h-screen w-screen items-center justify-center",
+          { "opacity-0": initialLoad }
+        )}
       >
         <Logo className="w-96" />
       </div>

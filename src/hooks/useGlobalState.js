@@ -11,6 +11,7 @@ const GlobalStateContext = createContext({});
 export const GlobalStateProvider = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showCookiePopup, setShowCookiepopup] = useState("byCookieValue");
+  const [initialLoad, setInitialLoad] = useState(false);
 
   useEffect(() => {}, []);
 
@@ -28,8 +29,10 @@ export const GlobalStateProvider = ({ children }) => {
       changeIsNavOpen,
       showCookiePopup,
       changeShowCookiepopup,
+      initialLoad,
+      setInitialLoad,
     }),
-    [isNavOpen, showCookiePopup]
+    [isNavOpen, showCookiePopup, initialLoad]
   );
 
   return (
