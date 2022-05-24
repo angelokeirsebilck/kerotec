@@ -60,7 +60,7 @@ const TransitionLayout = ({ children }) => {
   return (
     <>
       <Transition
-        timeout={500}
+        timeout={1500}
         onEnter={() => {
           pageEnterTransition();
           console.log("onEnter");
