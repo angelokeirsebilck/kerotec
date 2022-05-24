@@ -10,7 +10,6 @@ import Footer from "./Footer";
 import LandingAnimation from "./LandingAnimation";
 const CookieConsent = dynamic(() => import("react-cookie-consent"));
 import { getCookieConsentValue } from "react-cookie-consent";
-import PageTransition from "./PageTransition";
 
 const Layout = ({ seo, mainNav, footer, children, border }) => {
   const { showCookiePopup, changeShowCookiepopup } = useGlobalState();

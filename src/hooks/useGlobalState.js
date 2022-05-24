@@ -25,8 +25,10 @@ export const GlobalStateProvider = ({ children }) => {
   };
 
   const changeSetIsTransitioning = (value) => {
+    // console.log(value);
     setIsTransitioning(value);
-    console.log("is transitioning changed");
+    // console.log("is transitioning value: ", value);
+    // console.log("is transitioning: ", isTransitioning);
   };
 
   const memoedValue = useMemo(
@@ -40,7 +42,7 @@ export const GlobalStateProvider = ({ children }) => {
       changeSetIsTransitioning,
       isTransitioning,
     }),
-    [isNavOpen, showCookiePopup, initialLoad]
+    [isNavOpen, showCookiePopup, initialLoad, isTransitioning]
   );
 
   return (

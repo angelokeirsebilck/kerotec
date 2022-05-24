@@ -26,6 +26,7 @@ export async function getStaticProps() {
       seo: parseSEO(content.entry.seo),
       usp,
       footer,
+      slug: "home",
     },
   };
 }

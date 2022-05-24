@@ -32,6 +32,7 @@ export async function getStaticProps({ params }) {
       seo: parseSEO(content.entry.seo),
       usp,
       footer,
+      slug: params.slug,
     },
   };
 }

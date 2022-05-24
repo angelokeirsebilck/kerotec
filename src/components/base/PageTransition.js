@@ -6,20 +6,25 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 
 const PageTransition = () => {
-  const { changeSetIsTransitioning } = useGlobalState();
+  const { changeSetIsTransitioning, isTransitioning } = useGlobalState();
   const logoRef = useRef(null);
   const containerRefWhite = useRef(null);
   const containerRefPrimary = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
-    router.events.on("routeChangeStart", pageTransitionAnimation);
+    router.events.on("routeChangeStart", () => {
+      changeSetIsTransitioning(true);
+      setTimeout(() => {
+        pageTransitionAnimation();
+      }, 1000);
+    });
     // pageTransitionAnimation();
-    console.log("page trans");
-  }, []);
+  }, [router]);
 
   const pageTransitionAnimation = () => {
-    changeSetIsTransitioning(true);
+    console.log("page trans");
+
     const pageTrans = gsap.timeline({
       onComplete: () => {
         pageTrans.pause(0);
@@ -41,7 +46,6 @@ const PageTransition = () => {
         transformOrigin: "top",
         onComplete: () => {
           changeSetIsTransitioning(false);
-          console.log("set transition false");
         },
       })
       .to(containerRefPrimary.current, {

@@ -1,16 +1,19 @@
 import "../../styles/globals.css";
-import PageTransition from "../components/base/PageTransition";
+import TransitionLayout from "../components/base/Transition";
 import Seo from "../components/base/SEO";
 import useGlobalState, { GlobalStateProvider } from "../hooks/useGlobalState";
 
 function MyApp({ Component, pageProps }) {
   const { seo, ...props } = pageProps;
-  const { isTransitioning } = useGlobalState();
+
+  // console.log(isTransitioning);
   return (
     <GlobalStateProvider>
-      <PageTransition />
+      {/* <PageTransition /> */}
       <Seo {...seo} />
-      {!isTransitioning ? <Component {...props} /> : null}
+      <TransitionLayout>
+        <Component {...props} key={pageProps.slug} />
+      </TransitionLayout>
     </GlobalStateProvider>
   );
 }
