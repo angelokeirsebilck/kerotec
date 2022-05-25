@@ -27,7 +27,7 @@ const LandingAnimation = () => {
         scaleY: 0,
         transformOrigin: "bottom",
         duration: 1.5,
-        delay: 1,
+        delay: 0.3,
         ease: "power4.out",
       })
       .to(containerRefWhite.current, {

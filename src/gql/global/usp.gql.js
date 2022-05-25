@@ -11,6 +11,7 @@ export const uspQuery = gql`
               url
             }
             itemText
+            itemTitle
           }
         }
       }
