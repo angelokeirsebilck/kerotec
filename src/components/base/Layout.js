@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Head from "next/head";
-// import CookieConsent from "react-cookie-consent";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import useGlobalState from "../../hooks/useGlobalState";
@@ -43,7 +42,7 @@ const Layout = ({ seo, mainNav, footer, children, border }) => {
 
       <Header border={border} mainNav={mainNav} />
       <main>{children}</main>
-      {/* <LandingAnimation /> */}
+      <LandingAnimation />
       <Footer footer={footer} />
       {showCookiePopup && (
         <CookieConsent

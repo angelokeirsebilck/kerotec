@@ -3,71 +3,19 @@ import { gsap } from "gsap/dist/gsap";
 import Logo from "../../../public/img/svg/LOGO-ZW-BASELINE.svg";
 import useGlobalState from "../../hooks/useGlobalState";
 import clsx from "clsx";
-import { useRouter } from "next/router";
 
 const LandingAnimation = () => {
   const { initialLoad, setInitialLoad } = useGlobalState();
   const logoRef = useRef(null);
   const containerRefWhite = useRef(null);
   const containerRefPrimary = useRef(null);
-  const router = useRouter();
-
-  const pageTransitionStart = () => {
-    pageTransitionAnimation();
-  };
 
   useEffect(() => {
     if (!initialLoad) {
       console.log("initial load false");
       landingAnimation();
     }
-
-    router.events.on("routeChangeStart", pageTransitionStart);
-  }, [router]);
-
-  const pageTransitionAnimation = () => {
-    const pageTrans = gsap.timeline();
-
-    gsap.set(containerRefWhite.current, {
-      opacity: 1,
-    });
-    gsap.set(containerRefPrimary.current, {
-      opacity: 1,
-    });
-
-    pageTrans
-      .to(containerRefWhite.current, {
-        scaleY: 1,
-        transformOrigin: "bottom",
-        duration: 1.5,
-        delay: 1,
-        ease: "power4.out",
-      })
-      .to(containerRefWhite.current, {
-        duration: 0,
-        opacity: 0,
-      })
-      .addLabel("whiteDone", ">")
-      .to(
-        containerRefPrimary.current,
-        {
-          duration: 1.5,
-          ease: "power4.out",
-          scaleY: 1,
-          transformOrigin: "bottom",
-        },
-        "whiteDone-=1"
-      )
-      .addLabel("greenDone", ">")
-      .to(
-        logoRef.current,
-        {
-          opacity: 0,
-          duration: 0.2,
-        },
-        "greenDone-=1.3"
-      );
-  };
+  }, []);
 
   const landingAnimation = () => {
     const landingTimeline = gsap.timeline({

@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import cmsClient from "../lib/cmsClient";
 import { mainNavQuery } from "../gql/global/nav.gql";
 import { pagesQuery } from "../gql/pages/pages.gql";
+import { servciesQuery } from "../gql/categories/services.gql";
 import { pagesListQuery } from "../gql/pages/pagesList.gql";
 import { footerQuery } from "../gql/global/footer.gql";
 import { uspQuery } from "../gql/global/usp.gql";
@@ -24,6 +25,7 @@ export async function getStaticProps({ params }) {
   const mainNav = await cmsClient.request(mainNavQuery, queryParams);
   const footer = await cmsClient.request(footerQuery, queryParams);
   const usp = await cmsClient.request(uspQuery, queryParams);
+  const services = await cmsClient.request(servciesQuery, queryParams);
 
   return {
     props: {
@@ -31,6 +33,7 @@ export async function getStaticProps({ params }) {
       content,
       seo: parseSEO(content.entry.seo),
       usp,
+      services,
       footer,
       slug: params.slug,
     },
@@ -61,7 +64,13 @@ export async function getStaticPaths() {
   };
 }
 
-export default function DefaultPage({ mainNav, footer, usp, content }) {
+export default function DefaultPage({
+  mainNav,
+  footer,
+  usp,
+  content,
+  services,
+}) {
   let contentMatrix = content.entry.fieldContentKerotec;
 
   if (content.entry.__typename == "kerotecSeoPages_default_Entry") {
@@ -74,6 +83,7 @@ export default function DefaultPage({ mainNav, footer, usp, content }) {
       <Content
         content={contentMatrix}
         usp={usp}
+        services={services}
         info={footer.info}
         lcp={true}
       />

@@ -155,3 +155,7 @@ select:-webkit-autofill:focus {
     }
   }
 }
+
+.swiper-button-disabled {
+  @apply pointer-events-none opacity-30;
+}

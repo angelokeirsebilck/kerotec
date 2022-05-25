@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import SparkHover from "../../../public/img/svg/spark-hover.svg";
 import useGlobalState from "../../hooks/useGlobalState";
 import { useRouter } from "next/router";
 import { useLockBodyScroll, useToggle } from "react-use";
+import { scroller } from "react-scroll";
 
 const ThemeButton = ({ className, type, label, href, footer }) => {
   const { changeIsNavOpen } = useGlobalState();
+  const scrollEl = useRef();
   const router = useRouter();
   const [locked, toggleLocked] = useToggle(false);
   useLockBodyScroll(locked);
@@ -16,7 +18,25 @@ const ThemeButton = ({ className, type, label, href, footer }) => {
   const defaultClass = "btn relative group ";
   const btnClass = defaultClass + className;
 
+  const scrollTo = (href) => {
+    scroller.scrollTo(href, {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  };
+
   switch (type) {
+    case "scroll":
+      return (
+        <span
+          className={btnClass}
+          ref={scrollEl}
+          onClick={() => scrollTo(href)}
+        >
+          {label}
+        </span>
+      );
     case "button":
       return <button className={btnClass}>{label}</button>;
     case "submit":

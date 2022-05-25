@@ -88,5 +88,11 @@ fieldContentKerotec {
         width
       }
     }
+    ... on fieldContentKerotec_typeServices_BlockType {
+      __typename
+      id
+      itemTitle
+      itemBackgroundColor
+    }
   }
 `;

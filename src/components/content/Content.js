@@ -1,7 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
 // import Cta from "./CTA";
-// import Form from "./Form";
+import Form from "./Form";
+import Services from "./Services";
 // import References from "./References";
 // import Text from "./Text";
 // import TextMedia from "./TextMedia";
@@ -11,10 +12,10 @@ const USP = dynamic(() => import("./USP"));
 const TextMedia = dynamic(() => import("./TextMedia"));
 const Text = dynamic(() => import("./Text"));
 const References = dynamic(() => import("./References"));
-const Form = dynamic(() => import("./Form"));
+// const Form = dynamic(() => import("./Form"));
 const Cta = dynamic(() => import("./CTA"));
 
-const Content = ({ content, usp, info, lcp }) => {
+const Content = ({ content, usp, info, lcp, services }) => {
   return content.map((c, index) => {
     switch (c.__typename) {
       case "fieldContentKerotec_typeText_BlockType":
@@ -36,6 +37,10 @@ const Content = ({ content, usp, info, lcp }) => {
         return <Form key={`Form${c.id}`} info={info} content={c} />;
       case "fieldContentKerotec_typeReferences_BlockType":
         return <References key={`References${c.id}`} content={c} />;
+      case "fieldContentKerotec_typeServices_BlockType":
+        return (
+          <Services key={`Services${c.id}`} content={c} services={services} />
+        );
       default:
         return null;
     }

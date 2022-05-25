@@ -23,8 +23,8 @@ const HomeBanner = ({ content }) => {
             <div className="mt-6">
               <ThemeButton
                 className="btn-secondary"
-                type="next"
-                href={`/${content.itemLink[0].itemLink[0].slug}`}
+                type="scroll"
+                href={`services`}
                 label={content.itemLink[0].itemLabel}
               />
             </div>
