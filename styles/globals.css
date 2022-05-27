@@ -23,6 +23,15 @@ select:-webkit-autofill:focus {
     opacity: 0.3;
     pointer-events: none;
   }
+
+  .usp {
+    svg {
+      path {
+        fill: #006134;
+        stroke: #006134;
+      }
+    }
+  }
 }
 
 .btn {

@@ -18,7 +18,9 @@ const USP = ({ content, usp }) => {
       }
     >
       <Container>
-        <div className={`${spacing} grid grid-cols-1 gap-12 sm:grid-cols-2`}>
+        <div
+          className={`${spacing} usp grid grid-cols-1 gap-12 sm:grid-cols-2`}
+        >
           {uspList.map((usp, index) => {
             return (
               <div className="flex justify-center" key={index}>
