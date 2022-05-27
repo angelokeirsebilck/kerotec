@@ -17,8 +17,6 @@ const Form = dynamic(() => import("./Form"));
 const Cta = dynamic(() => import("./CTA"));
 
 const Content = ({ content, usp, info, lcp, services }) => {
-  <Suspense fallback={`Loading`}></Suspense>;
-
   const getContentBlock = () => {
     return content.map((c, index) => {
       switch (c.__typename) {
@@ -81,12 +79,7 @@ const Content = ({ content, usp, info, lcp, services }) => {
   //   }
   // });
 
-  return (
-    <Suspense fallback={`Loading`}>
-      {" "}
-      <Spinner /> {getContentBlock()}
-    </Suspense>
-  );
+  return <Suspense fallback={<Spinner />}>{getContentBlock()}</Suspense>;
 };
 
 export default Content;
