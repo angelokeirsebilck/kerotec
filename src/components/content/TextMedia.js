@@ -17,6 +17,8 @@ gsap.registerPlugin(ScrollTrigger);
 const MediaText = ({ content, index, lcp }) => {
   const proseElements = useRef(null);
   const imgRef = useRef(null);
+  const spark = useRef(null);
+  const mediaText = useRef(null);
 
   useEffect(() => {
     gsap.from(proseElements.current.children, {
@@ -29,9 +31,21 @@ const MediaText = ({ content, index, lcp }) => {
       y: 20,
       stagger: 0.2,
     });
-    return () => {
-      // Your cleanup code, including removeEventListeners
-    };
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    gsap.to(spark.current, {
+      yPercent: -80,
+      ease: "none",
+      scrollTrigger: {
+        trigger: mediaText.current,
+        start: () => "top 70%",
+        scrub: true,
+        // markers: true,
+      },
+    });
+    return () => {};
   }, []);
 
   useEffect(() => {
@@ -44,9 +58,7 @@ const MediaText = ({ content, index, lcp }) => {
       opacity: 0,
       y: 40,
     });
-    return () => {
-      // Your cleanup code, including removeEventListeners
-    };
+    return () => {};
   }, []);
 
   const contentPos =
@@ -81,6 +93,7 @@ const MediaText = ({ content, index, lcp }) => {
 
   return (
     <div
+      ref={mediaText}
       className={
         content.itemBackgroundColor === "light"
           ? "relative overflow-hidden bg-primary-bg"
@@ -88,9 +101,12 @@ const MediaText = ({ content, index, lcp }) => {
       }
     >
       {showSpark && (
-        <SparkBig
+        <div
           className={`${sparkPos} absolute top-1/4 z-10 hidden scale-125 transform md:block`}
-        />
+          ref={spark}
+        >
+          <SparkBig />
+        </div>
       )}
       <Container>
         <div
@@ -99,10 +115,6 @@ const MediaText = ({ content, index, lcp }) => {
           <div
             className={`${contentPos} ${textalign} col-span-6 flex flex-col`}
           >
-            {/* <h2
-              className="font-sans heading1-clamp mb-6 font-semibold tracking-3 md:mb-12"
-              dangerouslySetInnerHTML={createTitleHTML()}
-            /> */}
             <div
               className="prose-style"
               ref={proseElements}
@@ -127,26 +139,6 @@ const MediaText = ({ content, index, lcp }) => {
             {showLinesDownRight && (
               <LinesDownRight className="absolute -bottom-40 right-1/3 hidden md:block xl:-right-1/4" />
             )}
-            {/* <div className="image-container">
-              <Image
-                alt={content.itemImage[0].title}
-                src={content.itemImage[0].url}
-                layout="fill"
-                className="image"
-                sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/+3pfwAJsQPbaaNDqQAAAABJRU5ErkJggg=="
-              />
-            </div> */}
-            {/* <BlurImage
-              alt={content.itemImage[0].title}
-              src={content.itemImage[0].url}
-              layout="responsive"
-              width={612}
-              height={408}
-              sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
-              priority={index == 1 && lcp ? "true" : false}
-            /> */}
             <div className="relative block" ref={imgRef}>
               <Image
                 alt={content.itemImage[0].title}

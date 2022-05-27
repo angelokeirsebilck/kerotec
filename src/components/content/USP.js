@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import SVG from "react-inlinesvg";
 
 // Components
 import Container from "../base/Container";
 
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 const USP = ({ content, usp }) => {
   const uspList = usp.globalSet.fieldKerotecUsp;
   const spacing =
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
+
+  const uspElements = useRef([]);
+
+  useEffect(() => {
+    uspElements.current.forEach((usp) => {
+      gsap.from(usp, {
+        scrollTrigger: {
+          trigger: usp,
+          start: "top 75%",
+        },
+        duration: 1.3,
+        opacity: 0,
+        y: 30,
+      });
+    });
+
+    return () => {};
+  }, []);
 
   return (
     <div
@@ -23,7 +44,11 @@ const USP = ({ content, usp }) => {
         >
           {uspList.map((usp, index) => {
             return (
-              <div className="flex justify-center" key={index}>
+              <div
+                className="flex justify-center"
+                ref={(e) => (uspElements.current[index] = e)}
+                key={index}
+              >
                 <div className="flex max-w-md flex-col items-center">
                   <SVG
                     src={`${usp.itemIcon[0].url}`}

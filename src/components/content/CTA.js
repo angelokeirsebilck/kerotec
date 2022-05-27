@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-// import { hyphenateSync } from "hyphen/nl";
-// Components
+
 import ThemeButton from "../base/Button";
 import Container from "../base/Container";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Cta = ({ content }) => {
   const ctaContent = content.itemCta[0].fieldKerotecCtaContent[0];
+
+  const title = useRef(null);
+
+  useEffect(() => {
+    gsap.from(title.current, {
+      scrollTrigger: {
+        trigger: title.current,
+        start: "top 75%",
+      },
+      duration: 1.2,
+      ease: "power4.out",
+      yPercent: 100,
+    });
+    return () => {
+      // Your cleanup code, including removeEventListeners
+    };
+  }, []);
 
   const spacing =
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
@@ -39,11 +58,11 @@ const Cta = ({ content }) => {
       <div className="relative z-30">
         <Container>
           <div className={`${spacing} grid gap-6 md:grid-cols-12 `}>
-            <div className="md:col-span-4">
+            <div className="overflow-hidden md:col-span-4">
               <h2
+                ref={title}
                 className={`heading1-clamp font-semibold tracking-3 ${textColor}`}
               >
-                {/* {hyphenateSync(ctaContent.itemTitle, { minWordLength: 10 })} */}
                 {ctaContent.itemTitle}
               </h2>
             </div>
@@ -51,7 +70,6 @@ const Cta = ({ content }) => {
               <div
                 className={`heading3-clamp font-medium md:text-right ${textColor}`}
               >
-                {/* {hyphenateSync(ctaContent.itemText, { minWordLength: 10 })} */}
                 {ctaContent.itemText}
               </div>
               {ctaContent.itemLink.length > 0 && (

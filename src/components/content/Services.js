@@ -12,7 +12,7 @@ const Services = ({ content, services }) => {
   const spacing =
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
   const fadeInElements = useRef([]);
-
+  const title = useRef(null);
   useEffect(() => {
     gsap.from(fadeInElements.current, {
       scrollTrigger: {
@@ -23,6 +23,21 @@ const Services = ({ content, services }) => {
       opacity: 0,
       y: 20,
       stagger: 0.2,
+    });
+    return () => {
+      // Your cleanup code, including removeEventListeners
+    };
+  }, []);
+
+  useEffect(() => {
+    gsap.from(title.current, {
+      scrollTrigger: {
+        trigger: title.current,
+        start: "top 75%",
+      },
+      duration: 1.2,
+      ease: "power4.out",
+      yPercent: 100,
     });
     return () => {
       // Your cleanup code, including removeEventListeners
@@ -40,9 +55,11 @@ const Services = ({ content, services }) => {
     >
       <Container>
         <div className={spacing}>
-          <h2 className="font-sans heading1-clamp mb-6 font-semibold tracking-3 md:mb-12">
-            {/* {hyphenateSync(content.itemTitle, { minWordLength: 10 })} */}
-            {content.itemTitle}
+          <h2 className="font-sans heading1-clamp mb-6 overflow-hidden font-semibold tracking-3 md:mb-12">
+            <span ref={title} className="inline-block">
+              {" "}
+              {content.itemTitle}
+            </span>
           </h2>
           <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2">
             <LinesDownRight className="absolute -bottom-40 right-1/3 hidden md:block xl:-right-[10%]" />
