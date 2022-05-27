@@ -37,7 +37,7 @@ const HomeBanner = ({ content }) => {
             layout="responsive"
             width={613}
             height={555}
-            priority
+            priority={true}
             sizes="(max-width: 374px) 342px, (max-width: 450px) 403px,(max-width: 575px) 527px, (max-width: 767px) 735px ,613px"
             placeholder="blur"
           />
