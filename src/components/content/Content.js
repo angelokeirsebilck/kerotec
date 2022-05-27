@@ -2,19 +2,34 @@ import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 // import Cta from "./CTA";
 // import Form from "./Form";
-import Services from "./Services";
+// import Services from "./Services";
 import Spinner from "../base/Spinner";
 // import References from "./References";
 // import Text from "./Text";
 // import TextMedia from "./TextMedia";
 // import USP from "./USP";
 
-const USP = dynamic(() => import("./USP"));
-const TextMedia = dynamic(() => import("./TextMedia"));
-const Text = dynamic(() => import("./Text"));
-const References = dynamic(() => import("./References"));
-const Form = dynamic(() => import("./Form"));
-const Cta = dynamic(() => import("./CTA"));
+const USP = dynamic(() => import("./USP"), {
+  suspense: true,
+});
+const TextMedia = dynamic(() => import("./TextMedia"), {
+  suspense: true,
+});
+const Text = dynamic(() => import("./Text"), {
+  suspense: true,
+});
+const References = dynamic(() => import("./References"), {
+  suspense: true,
+});
+const Form = dynamic(() => import("./Form"), {
+  suspense: true,
+});
+const Cta = dynamic(() => import("./CTA"), {
+  suspense: true,
+});
+const Services = dynamic(() => import("./Services"), {
+  suspense: true,
+});
 
 const Content = ({ content, usp, info, lcp, services }) => {
   const getContentBlock = () => {
