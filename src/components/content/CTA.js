@@ -11,14 +11,17 @@ const Cta = ({ content }) => {
   const ctaContent = content.itemCta[0].fieldKerotecCtaContent[0];
 
   const title = useRef(null);
+  const titleContainer = useRef(null);
 
   useEffect(() => {
     gsap.from(title.current, {
       scrollTrigger: {
-        trigger: title.current,
-        start: "top 75%",
+        trigger: titleContainer.current,
+        start: "top 80%",
+        // markers: true,
       },
       duration: 1.2,
+
       ease: "power4.out",
       yPercent: 100,
     });
@@ -58,7 +61,7 @@ const Cta = ({ content }) => {
       <div className="relative z-30">
         <Container>
           <div className={`${spacing} grid gap-6 md:grid-cols-12 `}>
-            <div className="overflow-hidden md:col-span-4">
+            <div className="overflow-hidden md:col-span-4" ref={titleContainer}>
               <h2
                 ref={title}
                 className={`heading1-clamp font-semibold tracking-3 ${textColor}`}

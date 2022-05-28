@@ -13,6 +13,7 @@ const Services = ({ content, services }) => {
     content.itemBackgroundColor === "white" ? "section" : "section-bg";
   const fadeInElements = useRef([]);
   const title = useRef(null);
+  const titleContainer = useRef(null);
   useEffect(() => {
     gsap.from(fadeInElements.current, {
       scrollTrigger: {
@@ -32,8 +33,8 @@ const Services = ({ content, services }) => {
   useEffect(() => {
     gsap.from(title.current, {
       scrollTrigger: {
-        trigger: title.current,
-        start: "top 75%",
+        trigger: titleContainer.current,
+        start: "top 80%",
       },
       duration: 1.2,
       ease: "power4.out",
@@ -55,9 +56,11 @@ const Services = ({ content, services }) => {
     >
       <Container>
         <div className={spacing}>
-          <h2 className="font-sans heading1-clamp mb-6 overflow-hidden font-semibold tracking-3 md:mb-12">
+          <h2
+            ref={titleContainer}
+            className="font-sans heading1-clamp mb-6 overflow-hidden font-semibold tracking-3 md:mb-12"
+          >
             <span ref={title} className="inline-block">
-              {" "}
               {content.itemTitle}
             </span>
           </h2>

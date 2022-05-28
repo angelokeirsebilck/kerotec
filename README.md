@@ -6,3 +6,5 @@ https://kerotec.be
 - GSAP
 - Tailwind CSS
 - Craft CMS
+- GraphQL
+- SendGrid
